@@ -6,6 +6,19 @@ body {
   color: $dark;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -20,4 +33,52 @@ body {
   @extend %rubik-500;
   font-size: 36px;
   line-height: 1.3;
+}
+
+.btn {
+  line-height: 1.3;
+  color: $white;
+  background-color: $orange-900;
+  border-radius: 6px;
+  transition: color 0.5s, background-color 0.5s, box-shadow 0.5s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70), 0 5px 12px 0 rgba(255, 104, 56, 0.20);
+    color: $orange-900;
+  }
+
+  &:focus {
+    background-color: rgba(255, 122, 80, 0.10);
+    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+    color: $orange-900;
+  }
+
+  &:active {
+    background-color: rgba(255, 122, 80, 0.10);
+  }
+}
+
+.details {
+  text-decoration: underline;
+  color: $darkblue-900;
+  transition: color 0.5s, border-radius 0.5s, text-decoration 0.5s, background-color 0.5s, box-shadow 0.5s, text-shadow 0.5s;
+
+  &:hover {
+    color: $orange-900;
+    text-decoration: underline transparent;
+  }
+
+  &:focus {
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.01);
+    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+    text-decoration: underline;
+  }
+
+  &:active {
+    color: $darkblue-900;
+    text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.50);
+    text-decoration: underline transparent;
+  }    
 }

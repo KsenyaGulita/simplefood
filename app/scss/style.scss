@@ -176,19 +176,11 @@
   }
 
   &__btn {    
-    font-size: 18px;
-    line-height: 1.3;
-    letter-spacing: 0.54px;
-    background-color: $orange-900;
-    color: $white;
-    padding: 12px 32px;
-    border-radius: 6px;
+    font-size: 18px;    
+    letter-spacing: 0.54px;    
+    padding: 12px 32px;    
     margin-right: 34px;
-  }
-
-  &__link {
-    text-decoration: underline;
-  }
+  }  
 }
 
 .categories {
@@ -206,6 +198,11 @@
 
   &__item-btn:not(:last-child) {
     margin-right: 20px;
+  }
+
+  &__link {
+    color: $darkblue-900;
+    text-decoration: underline;
   }
 
   &__btn {
@@ -247,11 +244,7 @@
     &:active {
       background-color: $white;
       box-shadow: 0 -5px 12px 0 rgba(255, 104, 56, 0.20) inset;
-    }
-
-    &__link {
-      text-decoration: underline;
-    }
+    }    
   }
 
   &__btn--active {
@@ -281,45 +274,81 @@
     column-gap: 30px;
     row-gap: 30px;
     margin-bottom: 60px;
-  }
-
-  &__product {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding: 20px 15px;
-    max-width: 210px;
-    width: 100%;
-    background-color: $white;
-    box-shadow: 0 0 0 1px $silver-200;
-
-    &__img {
-      margin: 0 auto;
-    }
-
-    &__name {
-      font-size: 15px;
-      line-height: 1.2;
-    }
-
-    &__price {
-      @extend %rubik-500;
-      font-size: 15px;
-      line-height: 1.4;
-    }
-
-    &__btn {
-      font-size: 14px;
-      line-height: 1.3;
-      padding: 7px 16px;
-      color: $white;
-      background-color: $orange-900;
-      border-radius: 6px;
-    }
   }  
 }
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 15px;
+  max-width: 210px;
+  width: 100%;
+  background-color: $white;
+  box-shadow: 0 0 0 1px $silver-200;
+
+  &__img {
+    margin: 0 auto;
+  }
+    
+  &__name {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+    
+  &__price {
+    @extend %rubik-500;
+    font-size: 15px;
+    line-height: 1.4;
+    color: $darkblue-900;
+  }
+    
+  &__btn {       
+    padding: 7px 16px;
+    font-size: 14px;    
+  }
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 0;
+}
+
+.form {  
+  max-width: 200px;
+  width: 100%;
+  margin-top: 30px;
+
+  &__input {
+    margin-bottom: 12px;
+    padding: 13px 15px;
+    background-color: $white;    
+    border: 1px solid $gray;
+    border-radius: 5px;
+    
+    &::placeholder {
+      @extend %rubik-400;
+      font-size: 14px;
+      line-height: 1.3;
+      color: $gray;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    padding: 13px 38px;
+    @extend %rubik-500;
+    font-size: 14px;
+    line-height: 1.3;
+    color: $white;
+    background-color: $orange-900;
+    border-radius: 5px;
+  }
+}
+
 
 
 

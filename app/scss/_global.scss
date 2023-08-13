@@ -2,6 +2,7 @@ body {
   @extend %rubik-400;
   font-size: 20px;
   line-height: 1.5;
+  background-color: $silver-100;
   color: $dark;
 }
 
@@ -9,4 +10,14 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.title {
+  @extend %rubik-500;
+  font-size: 36px;
+  line-height: 1.3;
 }

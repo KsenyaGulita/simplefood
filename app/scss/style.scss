@@ -103,10 +103,11 @@
       background-color: rgba(255, 122, 80, 0.10);
       box-shadow: none;    
     } 
-  }
+  }  
 
   &__btn-svg ellipse,
   &__btn-svg path {
+    stroke: $darkblue-900;
     transition: stroke 0.5s;
   }  
   
@@ -246,6 +247,7 @@
   }
 
   &__btn-icon path {
+    fill: $dark;
     transition: fill 0.5s;
   }
 
@@ -263,7 +265,7 @@
   }  
 }
 
-.product {
+.product-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -338,6 +340,71 @@
     padding: 12px 32px;
   }
 }
+
+.best-restaurants {  
+
+  &__title {
+    text-align: center;
+    margin-bottom: 45px;
+  }
+
+  &__catalog {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+}
+
+.restaurant-card {
+  max-width: 370px;
+  width: 100%;    
+  border-radius: 10px;
+  background-color: $white;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.10);   
+
+  &__descr {
+    padding: 15px 20px 20px;
+  }
+
+  &__name {
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 1.3;
+    color: $dark;
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__worktime {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.9;
+  }
+
+  &__worktime-text {
+    @extend %rubik-300;
+    font-size: 18px;
+    line-height: 1.7;
+    color: $dark;
+    opacity: 0.9;
+
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    padding: 0 27px;
+    border-radius: 20px;
+  }
+}
+  
+
 
 .footer__top {
   display: flex;

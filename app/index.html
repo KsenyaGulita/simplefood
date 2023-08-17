@@ -35,13 +35,13 @@
           </ul>
           <div class="user-nav">
             <button class="user-nav__btn" type="button">
-              <svg class="user-nav__btn-svg" width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="user-nav__btn-svg" width="21" height="22">
                 <use xlink:href="images/sprite.svg#search-icon"></use>
               </svg>            
               <span class="sr-only">Поиск товара</span>
             </button>
             <button class="user-nav__btn" type="button">
-              <svg class="user-nav__btn-svg" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="user-nav__btn-svg" width="21" height="20">
                 <use xlink:href="images/sprite.svg#cart-icon"></use>
               </svg>
               <span class="sr-only">Выбранные товары</span>
@@ -79,12 +79,12 @@
     <section class="popular-categories section">
       <div class="container">
         <div class="popular-categories__top">
-          <h3 class="popular-categories__title title">Популярные категории</h3>
+          <h2 class="popular-categories__title title">Популярные категории</h2>
           <ul class="popular-categories__filter-btn">
 
             <li class="popular-categories__item-btn">
               <button class="popular-categories__btn popular-categories__btn--active" type="button" data-filter=".category-a">
-                <svg class="popular-categories__btn-icon categories__btn-icon--active" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="popular-categories__btn-icon categories__btn-icon--active" width="44" height="44">
                   <use xlink:href="images/sprite.svg#burger-icon"></use>                  
                 </svg>
                 <span class="popular-categories__btn-text">Бургеры</span>             
@@ -93,7 +93,7 @@
             
             <li class="popular-categories__item-btn">
               <button class="popular-categories__btn" type="button" data-filter=".category-b">
-                <svg class="popular-categories__btn-icon" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="popular-categories__btn-icon" width="44" height="44">
                   <use xlink:href="images/sprite.svg#pizza-icon"></use>
                 </svg>
                 <span class="popular-categories__btn-text">Пицца</span>
@@ -111,7 +111,7 @@
             
             <li class="popular-categories__item-btn">
               <button class="popular-categories__btn" type="button" data-filter=".category-d">
-                <svg class="popular-categories__btn-icon" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="popular-categories__btn-icon" width="44" height="44" fill="$dark">
                   <use xlink:href="images/sprite.svg#dinner-icon"></use>
                 </svg>
                 <span class="popular-categories__btn-text">Азиатская кухня</span>
@@ -131,137 +131,157 @@
 
         <ul class="popular-categories__catalog">
 
-          <li class="product" mix category-a>
-            <img class="product__img" src="images/catalog/product-1.png" alt="чизбургер с салатом">
-            <p class="product__name">
-              Чизбургер с листьями салата
-            </p>
-            <p class="product__price">
-              160 грн.
-            </p>
-            <button class="product__btn btn" type="button">
-              В корзину
-            </button>
+          <li class="popular-categories__item" mix category-a>
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-1.png" alt="чизбургер с салатом">
+              <h3 class="product-card__name">
+                Чизбургер с листьями салата
+              </h3>
+              <p class="product-card__price">
+                160 грн.
+              </p>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>            
           </li>
 
-          <li class="product" mix category-a>
-            <img class="product__img" src="images/catalog/product-2.png" alt="бифбургер">
-            <p class="product__name">
-              Бифбургер
-            </p>
-            <p class="product__price">
-              190 грн.
-            </p>
-            <button class="product__btn btn" type="button">
-              В корзину
-            </button>
+          <li class="popular-categories__item" mix category-a>
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-2.png" alt="бифбургер">
+              <h3 class="product-card__name">
+                Бифбургер
+              </h3>
+              <p class="product-card__price">
+                190 грн.
+              </p>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>
           </li>
 
-          <li class="product" mix category-a>
-            <img class="product__img" src="images/catalog/product-3.png" alt="королевский чизбургер">
-            <p class="product__name">
-              Королевский чизбургер
-            </p>
-            <p class="product__price">
-              260 грн.
-            </p>
-            <button class="product__btn btn" type="button">
-              В корзину
-            </button>
+          <li class="popular-categories__item" mix category-a>
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-3.png" alt="королевский чизбургер">
+              <h3 class="product-card__name">
+                Королевский чизбургер
+              </h3>
+              <p class="product-card__price">
+                260 грн.
+              </p>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>            
           </li>
 
-          <li class="product" mix category-a>
-            <img class="product__img" src="images/catalog/product-4.png" alt="черный гамбургер">
-            <p class="product__name">
-              Черный гамбургер
-            </p>
-            <p class="product__price">
-              199 грн.
-            </p>
-            <button class="product__btn btn" type="button">
-              В корзину
-            </button>
+          <li class="popular-categories__item" mix category-a>
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-4.png" alt="черный гамбургер">
+              <h3 class="product-card__name">
+                Черный гамбургер
+              </h3>
+              <p class="product-card__price">
+                199 грн.
+              </p>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>            
           </li>
 
-          <li class="product" mix category-a>
-            <img class="product__img" src="images/catalog/product-5.png" alt="чикен бургер">
-            <p class="product__name">
-              Чикен бургер
-            </p>
-            <p class="product__price">
-              180 грн.
-            </p>
-            <button class="product__btn btn" type="button">
-              В корзину
-            </button>
+          <li class="popular-categories__item" mix category-a>
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-5.png" alt="чикен бургер">
+              <h3 class="product-card__name">
+                Чикен бургер
+              </h3>
+              <p class="product-card__price">
+                180 грн.
+              </p>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>
           </li>
 
-          <li class="product" mix category-a>
-            <img class="product__img" src="images/catalog/product-1.png" alt="чизбургер с салатом">
-            <p class="product__name">
-              Чизбургер с листьями салата
-            </p>
-            <p class="product__price">
-              160 грн.
-            </p>
-            <button class="product__btn btn" type="button">
-              В корзину
-            </button>
+          <li class="popular-categories__item" mix category-a>
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-1.png" alt="чизбургер с салатом">
+              <h3 class="product-card__name">
+                Чизбургер с листьями салата
+              </h3>
+              <p class="product-card__price">
+                160 грн.
+              </p>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>
           </li>
 
-          <li class="product" mix category-a>
-            <img class="product__img" src="images/catalog/product-2.png" alt="бифбургер">
-            <p class="product__name">
-              Бифбургер
-            </p>
-            <p class="product__price">
-              190 грн.
-            </p>
-            <button class="product__btn btn" type="button">
-              В корзину
-            </button>
+          <li class="popular-categories__item" mix category-a>
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-2.png" alt="бифбургер">
+              <h3 class="product-card__name">
+                Бифбургер
+              </h3>
+              <p class="product-card__price">
+                190 грн.
+              </p>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>            
           </li>
 
-          <li class="product" mix category-a>
-            <img class="product__img" src="images/catalog/product-3.png" alt="королевский чизбургер">
-            <p class="product__name">
-              Королевский чизбургер
-            </p>
-            <p class="product__price">
-              260 грн.
-            </p>
-            <button class="product__btn btn" type="button">
-              В корзину
-            </button>
+          <li class="popular-categories__item" mix category-a>
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-3.png" alt="королевский чизбургер">
+              <h3 class="product-card__name">
+                Королевский чизбургер
+              </h3>
+              <p class="product-card__price">
+                260 грн.
+              </p>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>  
           </li>
 
-          <li class="product" mix category-a>
-            <img class="product__img" src="images/catalog/product-4.png" alt="черный гамбургер">
-            <p class="product__name">
-              Черный гамбургер
-            </p>
-            <p class="product__price">
-              199 грн.
-            </p>
-            <button class="product__btn btn" type="button">
-              В корзину
-            </button>
+          <li class="popular-categories__item" mix category-a>
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-4.png" alt="черный гамбургер">
+              <h3 class="product-card__name">
+                Черный гамбургер
+              </h3>
+              <p class="product-card__price">
+                199 грн.
+              </p>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>
           </li>
 
-          <li class="product" mix category-a>
-            <img class="product__img" src="images/catalog/product-5.png" alt="чикен бургер">
-            <p class="product__name">
-              Чикен бургер
-            </p>
-            <p class="product__price">
-              180 грн.
-            </p>
-            <button class="product__btn btn" type="button">
-              В корзину
-            </button>
+          <li class="popular-categories__item" mix category-a>
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-5.png" alt="чикен бургер">
+              <h3 class="product-card__name">
+                Чикен бургер
+              </h3>
+              <p class="product-card__price">
+                180 грн.
+              </p>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>            
           </li>
         </ul>
-        <a class="categories__link details" href="#">Показать еще</a>
+        <a class="popular-categories__link details" href="#">Показать еще</a>
       </div>
     </section>
 
@@ -270,9 +290,9 @@
         <div class="delivery__inner">
           <img class="delivery__img" src="images/delivery-bg.png" alt="доставка">
           <div class="delivery__content">
-            <h3 class="delivery__title title">
+            <h2 class="delivery__title title">
               Оставайтесь дома, а мы позаботимся о еде
-            </h3>
+            </h2>
             <p class="delivery__text">
               У нас есть вкусная еда и мы готовы доставить её к вам домой! Воспользуйтесь нашей доставкой прямо сейчас и получите скидку!
             </p>
@@ -308,32 +328,154 @@
       </div>
     </section>
 
-    <section class="best-restaurants">
+    <section class="best-restaurants section">
       <div class="container">
-        <h3 class="best-restaurants__title title">Лучшие рестораны</h3>
+        <h2 class="best-restaurants__title title">Лучшие рестораны</h2>
         <ul class="best-restaurants__catalog">
           <li class="best-restaurants__item">
-            <img class="best-restaurants__img" src="images/restaurants/restaurant-1.jpg" alt="Blaze Pizza">
-            <h4 class="best-restaurants__name">Blaze Pizza</h4>
-            <div class="best-restaurants__worktime">
-              <svg class="best-restaurants__worktime-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <use xlink:href="images/sprite.svg#timer-icon"></use>
-              </svg>
-              <span class="best-restaurants__worktime-text">11:00 - 22:00</span>
-            </div>
-            <a class="best-restaurants__link" href="#">
-              <svg class="best-restaurants__link-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <use xlink:href="images/sprite.svg#arrowright-icon"></use>
-              </svg>
-              <span class="sr-only">перейти к меню</span>
-            </a>
+            <article class="restaurant-card">
+              <img class="restaurant-card__img" src="images/restaurants/restaurant-1.jpg" alt="Blaze Pizza">            
+              <div class="restaurant-card__descr">
+                <h3 class="restaurant-card__name">Blaze Pizza</h3>
+                <div class="restaurant-card__box">
+                  <div class="restaurant-card__worktime">
+                    <svg class="restaurant-card__worktime-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#timer-icon"></use>
+                    </svg>
+                    <span class="restaurant-card__worktime-text">11:00 - 22:00</span>
+                  </div>
+                  <a class="restaurant-card__btn btn" href="#">
+                    <svg class="restaurant-card__btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#arrowright-icon"></use>
+                    </svg>
+                    <span class="sr-only">перейти к меню</span>
+                  </a>
+                </div>              
+              </div>
+            </article>                        
           </li>
-          <li class="best-restaurants__item"></li>
-          <li class="best-restaurants__item"></li>
-          <li class="best-restaurants__item"></li>
-          <li class="best-restaurants__item"></li>
-          <li class="best-restaurants__item"></li>
+          <li class="best-restaurants__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__img" src="images/restaurants/restaurant-2.jpg" alt="Pizza Runcho">            
+              <div class="restaurant-card__descr">
+                <h3 class="restaurant-card__name">Pizza Runcho</h3>
+                <div class="restaurant-card__box">
+                  <div class="restaurant-card__worktime">
+                    <svg class="restaurant-card__worktime-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#timer-icon"></use>
+                    </svg>
+                    <span class="restaurant-card__worktime-text">12:00 - 21:00</span>
+                  </div>
+                  <a class="restaurant-card__btn btn" href="#">
+                    <svg class="restaurant-card__btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#arrowright-icon"></use>
+                    </svg>
+                    <span class="sr-only">перейти к меню</span>
+                  </a>
+                </div>              
+              </div>
+            </article>            
+          </li>
+          <li class="best-restaurants__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__img" src="images/restaurants/restaurant-3.jpg" alt="Pizza Hut">            
+              <div class="restaurant-card__descr">
+                <h3 class="restaurant-card__name">Pizza Hut</h3>
+                <div class="restaurant-card__box">
+                  <div class="restaurant-card__worktime">
+                    <svg class="restaurant-card__worktime-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#timer-icon"></use>
+                    </svg>
+                    <span class="restaurant-card__worktime-text">11:00 - 22:00</span>
+                  </div>
+                  <a class="restaurant-card__btn btn" href="#">
+                    <svg class="restaurant-card__btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#arrowright-icon"></use>
+                    </svg>
+                    <span class="sr-only">перейти к меню</span>
+                  </a>
+                </div>              
+              </div>
+            </article>
+          </li>
+          <li class="best-restaurants__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__img" src="images/restaurants/restaurant-4.jpg" alt="McDonald`s">            
+              <div class="restaurant-card__descr">
+                <h3 class="restaurant-card__name">McDonald`s</h3>
+                <div class="restaurant-card__box">
+                  <div class="restaurant-card__worktime">
+                    <svg class="restaurant-card__worktime-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#timer-icon"></use>
+                    </svg>
+                    <span class="restaurant-card__worktime-text">6:00 - 23:00</span>
+                  </div>
+                  <a class="restaurant-card__btn btn" href="#">
+                    <svg class="restaurant-card__btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#arrowright-icon"></use>
+                    </svg>
+                    <span class="sr-only">перейти к меню</span>
+                  </a>
+                </div>              
+              </div>
+            </article>            
+          </li>
+          <li class="best-restaurants__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__img" src="images/restaurants/restaurant-5.jpg" alt="KFC">            
+              <div class="restaurant-card__descr">
+                <h3 class="restaurant-card__name">KFC</h3>
+                <div class="restaurant-card__box">
+                  <div class="restaurant-card__worktime">
+                    <svg class="restaurant-card__worktime-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#timer-icon"></use>
+                    </svg>
+                    <span class="restaurant-card__worktime-text">6:00 - 23:30</span>
+                  </div>
+                  <a class="restaurant-card__btn btn" href="#">
+                    <svg class="restaurant-card__btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#arrowright-icon"></use>
+                    </svg>
+                    <span class="sr-only">перейти к меню</span>
+                  </a>
+                </div>              
+              </div>
+            </article>            
+          </li>
+          <li class="best-restaurants__item">
+            <article class="restaurant-card">
+              <img class="restaurant-card__img" src="images/restaurants/restaurant-3.jpg" alt="Star Burgers">            
+              <div class="restaurant-card__descr">
+                <h3 class="restaurant-card__name">Star Burgers</h3>
+                <div class="restaurant-card__box">
+                  <div class="restaurant-card__worktime">
+                    <svg class="restaurant-card__worktime-icon" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#timer-icon"></use>
+                    </svg>
+                    <span class="restaurant-card__worktime-text">9:00 - 21:00</span>
+                  </div>
+                  <a class="restaurant-card__btn btn" href="#">
+                    <svg class="restaurant-card__btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <use xlink:href="images/sprite.svg#arrowright-icon"></use>
+                    </svg>
+                    <span class="sr-only">перейти к меню</span>
+                  </a>
+                </div>              
+              </div>
+            </article>            
+          </li>
         </ul>
+      </div>
+    </section>
+
+    <section class="reviews section">
+      <div class="container">
+        <h2 class="reviews__title title">Отзывы клиентов</h2>
+        <div class="reviews-slider">
+          <div class="slider__inner">
+            
+          </div>
+        </div>
       </div>
     </section>
 

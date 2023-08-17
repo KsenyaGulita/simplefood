@@ -29,6 +29,7 @@
 
   &:active {    
     opacity: 0.4;
+    box-shadow: none;
   }
 }
 
@@ -58,7 +59,7 @@
   display: flex;
   align-items: center;
 
-  &__link {
+  &__btn {
     position: relative;
     display: block;
     width: 44px;
@@ -73,8 +74,8 @@
       background-color: $orange-500;    
     } 
 
-    &:hover .user-nav__link-svg ellipse,
-    &:hover .user-nav__link-svg path {
+    &:hover .user-nav__btn-svg ellipse,
+    &:hover .user-nav__btn-svg path {
       stroke: $white;
     }
 
@@ -88,8 +89,8 @@
       box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
     } 
 
-    &:focus .user-nav__link-svg ellipse,
-    &:focus .user-nav__link-svg path {
+    &:focus .user-nav__btn-svg ellipse,
+    &:focus .user-nav__btn-svg path {
       stroke: $dark;
     }
 
@@ -104,12 +105,12 @@
     } 
   }
 
-  &__link-svg ellipse,
-  &__link-svg path {
+  &__btn-svg ellipse,
+  &__btn-svg path {
     transition: stroke 0.5s;
   }  
   
-  &__link:not(:last-child) {
+  &__btn:not(:last-child) {
     margin-right: 16px;
   }
 
@@ -129,7 +130,7 @@
 }
 
 .promo {
-  
+  padding-bottom: 60px;
   &__inner {
     display: flex;
     flex-direction: column;
@@ -168,8 +169,8 @@
   }  
 }
 
-.categories {
-  padding-top: 120px;
+.popular-categories {
+  
   text-align: center;
 
   &__title {
@@ -194,7 +195,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 22px 32px;
+    padding: 13px 32px;
     border-radius: 5px;
     background-color: $white;
     box-shadow: 0 0 0 1px $silver-200;
@@ -205,11 +206,11 @@
       box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
     }
 
-    &:hover .categories__btn-icon path {
+    &:hover .popular-categories__btn-icon path {
       fill: $orange-900;
     }
 
-    &:hover .categories__btn-text {
+    &:hover .popular-categories__btn-text {
       color: $orange-900;
     }
 
@@ -218,11 +219,11 @@
       box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
     }
 
-    &:focus .categories__btn-text {
+    &:focus .popular-categories__btn-text {
       color: $dark;
     }
 
-    &:focus .categories__btn-icon path {
+    &:focus .popular-categories__btn-icon path {
       fill: $dark;
     }
 
@@ -236,7 +237,7 @@
     background-color: $orange-900;
   }
 
-  &__btn--active .categories__btn-text {
+  &__btn--active .popular-categories__btn-text {
     color: $white;
   }
 
@@ -293,12 +294,48 @@
     @extend %rubik-500;
     font-size: 15px;
     line-height: 1.4;
+    margin-top: auto;
     color: $darkblue-900;
   }
     
   &__btn {       
     padding: 7px 16px;
     font-size: 14px;    
+  }
+}
+
+.delivery{
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 120px;
+  }
+
+  &__content {
+    max-width: 470px;
+    width: 100%;    
+  }
+
+  &__title,
+  &__text,
+  &__list {
+    margin-bottom: 30px;
+  }   
+
+  &__item {
+    display: flex;    
+    align-items: center;
+    gap: 30px;
+    font-size: 24px;    
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__btn {
+    padding: 12px 32px;
   }
 }
 
@@ -436,6 +473,14 @@
     line-height: 2;
     margin-bottom: 15px;
   }
+
+  &__link:hover .contact__link-icon path {
+    stroke: $orange-900;
+  }
+
+  &__link:active .contact__link-icon path {
+    stroke: $dark;
+  }
 }
 
 .social {
@@ -444,11 +489,11 @@
   gap: 15px;
 
   &__link {
-    display: inline-block;
-    text-align: center;    
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
     width: 39px;
-    height: 39px;
-    padding: 8px 0;
+    height: 39px;    
     background-color: $silver-200;
     border-radius: 50%;
     transition: background-color 0.5s, box-shadow 0.5s;
@@ -476,9 +521,7 @@
 
     &:active .social__link-icon path {
       fill: $orange-900;
-    }
-
-    
+    }    
   }
 
   &__link-icon path {

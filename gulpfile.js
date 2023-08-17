@@ -7,6 +7,35 @@ const uglify       = require('gulp-uglify');
 const imagemin     = require('gulp-imagemin');
 const del          = require('del');
 const browserSync  = require('browser-sync').create();
+const svgSprite    = require('gulp-svg-sprite');
+const cheerio      = require('gulp-cheerio');
+const replace      = require('gulp-replace');
+
+
+function svgSprites() {
+  return src('app/images/icons/*.svg')
+  .pipe(cheerio({
+    run: ($) => {
+        $("[fill]").removeAttr("fill"); 
+        $("[stroke]").removeAttr("stroke");
+        $("[style]").removeAttr("style"); 
+    },
+    parserOptions: { xmlMode: true },
+  })
+  )
+  .pipe(replace('&gt;','>'))
+  .pipe(
+      svgSprite({
+        mode: {
+          stack: {
+            sprite: '../sprite.svg',
+          },
+        },
+      })
+    )
+	.pipe(dest('app/images'));
+}
+
 
 
 function browsersync() {
@@ -33,6 +62,7 @@ function styles(){
 function scripts() {
   return src([
     'node_modules/jquery/dist/jquery.js',
+    'node_modules/mixitup/dist/mixitup.js',
     'app/js/main.js'
   ])
   .pipe(concat('main.min.js'))
@@ -74,15 +104,17 @@ function watching(){
   watch(['app/scss/**/*.scss'], styles);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/**/*.html']).on('change', browserSync.reload);
+  watch(['app/images/icons/*.svg'], svgSprites);
 }
 
 
 exports.styles      = styles;
 exports.scripts     = scripts;
 exports.browsersync = browsersync;
+exports.svgSprites  = svgSprites;
 exports.images      = images;
 exports.build       = series(cleanDist, images, build);
 exports.cleanDist   = cleanDist;
 exports.watching    = watching;
 
-exports.default     = parallel(styles, scripts, browsersync, watching);
+exports.default     = parallel(svgSprites, styles, scripts, browsersync, watching);

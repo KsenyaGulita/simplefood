@@ -1,30 +1,19 @@
-@import 'vars';
-@import 'fonts';
 @import 'reset';
+@import 'fonts';
+@import 'vars';
 @import 'libs';
 @import 'global';
 
-.header {
-  padding: 58px 0;
-
-  &__inner {
-    display: flex; 
-    justify-content: space-between;       
-    align-items: center;
-  }  
-}
-
 .logo {
   height: 31px;
-  transition: opacity 0.4s, border-radius 0.4s, background-color 0.4s, box-shadow 0.4s;
+  border-radius: 5px;
+  transition: opacity 0.5s, box-shadow 0.5s;
 
   &:hover {
     opacity: 0.8;
   }
 
-  &:focus {
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.01);
+  &:focus {        
     box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
   }
 
@@ -34,9 +23,19 @@
   }
 }
 
-.menu {
-  display: flex;
+.header {
+  padding: 58px 0;
 
+  &__inner {
+    display: flex; 
+    justify-content: space-between;       
+    align-items: center;
+  }
+
+  &__menu {
+    display: flex;  
+  }
+  
   &__list {    
     display: flex;  
     align-items: center;  
@@ -48,36 +47,38 @@
   }  
 
   &__list-link {
-    font-size: 18px;    
-  }
-
-  &__list-link--active {
-    color: $orange-900;
-  }
+    font-size: 18px;
+    
+    &--active {
+      color: $orange-900;
+    }
+  }  
 }
 
 .user-nav {
-  display: flex;
-  align-items: center;
+  display: flex;  
 
   &__btn {
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 44px;
-    height: 44px;
-    padding: 10px 0;
-    text-align: center;
+    height: 44px;    
     border: 2px solid transparent;  
     border-radius: 5px;
     transition: background-color 0.5s;
 
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+
     &:hover {
       background-color: $orange-500;    
     } 
-
-    &:hover .user-nav__btn-icon ellipse,
-    &:hover .user-nav__btn-icon path {
-      stroke: $white;
+    
+    &:hover .user-nav__btn-icon {
+      stroke: $white;      
     }
 
     &:hover .user-nav__num {
@@ -89,9 +90,8 @@
       background: rgba(255, 122, 80, 0.10);
       box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
     } 
-
-    &:focus .user-nav__btn-icon ellipse,
-    &:focus .user-nav__btn-icon path {
+    
+    &:focus .user-nav__btn-icon {
       stroke: $dark;
     }
 
@@ -106,37 +106,28 @@
     } 
   } 
   
-  &__btn-icon {
-    stroke: $darkblue-900;
-  }
-
-  &__btn-icon ellipse,
-  &__btn-icon path { 
+  &__btn-icon { 
     stroke: $darkblue-900;   
     transition: stroke 0.5s;
-  }  
-  
-  &__btn:not(:last-child) {
-    margin-right: 16px;
-  }
+  } 
 
   &__num {
-    position: absolute;
-    width: 14px;
+    position: absolute;  
     height: 14px;
     left: 60%;
-    transform: translateY(-25%);
-    font-size: 10px;
-    text-align: center;
+    padding: 0 4px 3px;
+    font-size: 10px;    
     color: $white;
     background-color: $orange-900;
-    border-radius: 50%;
+    border-radius: 10px;
+    transform: translateY(-50%);
     transition: color 0.5s, background-color 0.5s;
   }
 }
 
 .promo {
   padding-bottom: 60px;
+
   &__inner {
     display: flex;
     flex-direction: column;
@@ -145,7 +136,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right;
-    height: calc(100vh - 160px);
+    height: 660px;
   }
 
   &__title {
@@ -229,7 +220,7 @@
       color: $dark;
     }
 
-    &:focus .popular-categories__btn-icon path {
+    &:focus .popular-categories__btn-icon {
       fill: $dark;
     }
 
@@ -247,7 +238,7 @@
     color: $white;
   }
 
-  &__btn-icon--active {
+  &__btn--active .popular-categories__btn-icon--active{
     fill: $white;
   }
 
@@ -263,6 +254,7 @@
 
   &__catalog {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     column-gap: 30px;
     row-gap: 30px;
@@ -275,9 +267,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  max-width: 210px;
-  width: 100%;
+  width: 210px;  
   padding: 20px 15px;  
   background-color: $white;
   box-shadow: 0 0 0 1px $silver-200;
@@ -292,13 +282,14 @@
     @extend %rubik-400;
     font-size: 15px;
     line-height: 1.2;
+    margin-bottom: 10px;
   }
     
   &__price {
     @extend %rubik-500;
     font-size: 15px;
     line-height: 1.4;
-    margin-top: auto;
+    margin: auto 0 10px;
     color: $darkblue-900;
   }
     
@@ -322,10 +313,13 @@
   }
 
   &__title,
-  &__text,
-  &__list {
+  &__text {
     margin-bottom: 30px;
-  }   
+  } 
+  
+  &__list {
+    margin-bottom: 42px;
+  }
 
   &__item {
     display: flex;    
@@ -420,13 +414,32 @@
 
   &__btn {
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 0 27px;
+    width: 78px;
     border-radius: 20px;
+    transition: justify-content 0.8s;
+
+    &:hover {
+      justify-content: flex-end;
+    }
+
+    &:hover .restaurant-card__btn-icon {
+      fill: $orange-900;
+    }
+
+    &:focus .restaurant-card__btn-icon {
+      fill: $orange-900;
+    }
+
+    &:active .restaurant-card__btn-icon {
+      fill: $orange-900;
+    } 
   } 
   
   &__btn-icon {
     fill: $white;
+    transition: fill 0.5s;
   }
 }
 
@@ -508,6 +521,7 @@
         background-color: $gray;
         border: 2px solid transparent;
         border-radius: 50%;
+        transition: border-color 0.5s, background-color 0.5s, box-shadow 0.5s;
 
         &:hover {
           border-color: $orange-500;
@@ -575,15 +589,15 @@
     &:active .slider__arrow-icon {
       fill: $orange-900;
     }
-  }
 
-  &__arrow--prev {
-    right: 57%;
-  }
-
-  &__arrow--next {
-    left: 57%;
-  }
+    &--prev {
+      right: 57%;
+    }
+  
+    &--next {
+      left: 57%;
+    }
+  }  
 
   &__arrow-icon {
     fill: $gray;
@@ -613,26 +627,49 @@
 
   &__link {
     display: inline-block;
-  }
 
-  &__link-img:not(:last-child) {
-    margin-right: 30px;
-  }
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }  
 }
 
+.footer {
+  &__top {
+    display: flex;  
+    gap: 70px;
+    padding: 60px 0;
+  }
 
+  &__logo {
+    margin-bottom: 30px;
+  }
+
+  &__menu {
+    display: grid;
+    grid-template-columns: 153px 89px 187px;    
+    grid-column-gap: 70px;    
+  }
+
+  &__menu-link {
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: 0.18px;
+  }
+
+  &__bottom {
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid $gray;  
+  }
   
-
-
-.footer__top {
-  display: flex;  
-  gap: 70px;
-  padding: 60px 0;
+  &__copyright {
+    font-size: 14px;
+    line-height: 1;
+  }
 }
 
 .form {  
-  margin-top: 30px;
-
   &__input {
     max-width: 200px;
     width: 100%;
@@ -726,33 +763,16 @@
   }
 }
 
-
-.footer {
-  &__menu {
-    display: grid;
-    grid-template-columns: 153px 89px 187px;    
-    grid-column-gap: 70px;    
-  }
-
-  &__menu-link {
-    font-size: 18px;
-    line-height: 1.3;
-    letter-spacing: 0.18px;
-  }  
-}
-
 .contact {
   &__address{
+    display: block;
     font-style: normal;
   }
 
-  &__address-icon,
   &__link-icon {
-    stroke: $dark;
-    transition: stroke 0.5s;
+    filter: invert(15%) sepia(31%) saturate(288%) hue-rotate(42deg) brightness(95%) contrast(86%);
   }
 
-  &__address,
   &__link {   
     display: flex;
     gap: 10px;
@@ -760,21 +780,12 @@
     font-size: 16px;
     line-height: 2;
     margin-bottom: 15px;
-  }  
-
-  &__link:hover .contact__link-icon {
-    stroke: $orange-900;
-  }
-
-  &__link:active .contact__link-icon {
-    stroke: $dark;
-  }
+  }   
 }
 
-.social {
+.contact-social {
   display: flex;
-  align-items: center;
-  gap: 15px;
+  align-items: center;  
 
   &__link {
     display: flex;
@@ -786,11 +797,15 @@
     border-radius: 50%;
     transition: background-color 0.5s, box-shadow 0.5s;
 
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+
     &:hover {
       background-color: $orange-900;
     }
 
-    &:hover .social__link-icon {
+    &:hover .contact-social__link-icon {
       fill: $white;
     }
 
@@ -799,7 +814,7 @@
       box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
     }
 
-    &:focus .social__link-icon {
+    &:focus .contact-social__link-icon {
       fill: $dark;
     }
 
@@ -807,7 +822,7 @@
       box-shadow: none;
     }
 
-    &:active .social__link-icon {
+    &:active .contact-social__link-icon {
       fill: $orange-900;
     }    
   }
@@ -818,16 +833,7 @@
   }
 }
 
-.footer__bottom {
-  padding: 30px 0;
-  text-align: center;
-  border-top: 1px solid $gray;  
-}
 
-.copyright {
-  font-size: 14px;
-  line-height: 1;
-}
 
 
 

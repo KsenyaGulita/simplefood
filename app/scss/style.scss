@@ -1,14 +1,15 @@
 @import 'reset';
 @import 'fonts';
 @import 'vars';
+@import 'mixins';
 @import 'libs';
 @import 'global';
 
 .logo {
   height: 31px;
   border-radius: 5px;
-  transition: opacity 0.5s, box-shadow 0.5s;
-
+  transition: opacity 0.5s, box-shadow 0.5s;  
+ 
   &:hover {
     opacity: 0.8;
   }
@@ -24,7 +25,16 @@
 }
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 58px 0;
+  z-index: 3;
+
+  &.active {
+    background-color: #fff;
+  }
 
   &__inner {
     display: flex; 
@@ -681,7 +691,7 @@
   &__bottom {
     padding: 30px 0;
     text-align: center;
-    border-top: 1px solid $gray;  
+    border-top: 1px solid rgba(194, 194, 194, 0.2);  
   }
   
   &__copyright {

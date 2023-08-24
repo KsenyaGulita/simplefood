@@ -1,11 +1,13 @@
 $orange-900:   #ff6838;
 $orange-500:   #ff7a50;
+$orange-300:   #FFAE94;
 $white:        #fff;
 $silver-200:   #ececec;
 $silver-100:   #f9faff;
 $gray:         #c2c2c2;
 $darkblue-900: #363853;
 $dark:         #31352b;
+$black:        #000;
 
 %rubik-300 {
   font-family: 'Rubik', sans-serif;
@@ -28,3 +30,7 @@ $dark:         #31352b;
   font-weight: 400;
 }
 
+$burgerWidth: 30px;
+$burgerHeight: 20px;
+$burgerLineHeight: 2px;
+$burgerColor: $darkblue-900;

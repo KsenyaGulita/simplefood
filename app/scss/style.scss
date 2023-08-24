@@ -5,17 +5,29 @@
 @import 'libs';
 @import 'global';
 
-.logo {
-  height: 31px;
+.logo {  
   border-radius: 5px;
-  transition: opacity 0.5s, box-shadow 0.5s;  
+  transition: opacity 0.5s, box-shadow 0.5s;
+
+  @include mq('phone') {
+    width: 115px;
+    height: 23px;
+  }
+
+  &__img {
+    height: 39px;
+
+    @include mq('phone') {
+      height: 23px;
+    }
+  }
  
   &:hover {
     opacity: 0.8;
   }
 
   &:focus {        
-    box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+    box-shadow: 0 0 0 2px rgba($orange-900, 0.70);
   }
 
   &:active {    
@@ -24,6 +36,10 @@
   }
 }
 
+// .wrapper {
+//   padding-top: 160px;
+// }
+
 .header {
   position: fixed;
   top: 0;
@@ -31,9 +47,19 @@
   right: 0;
   padding: 58px 0;
   z-index: 3;
+  transition: background-color 0.5s, padding 0.5s;
+
+  @include mq('tablet-2') {
+    padding: 30px 0;
+  } 
+
+  @include mq('phone') {
+    padding: 14px 0;
+  }
 
   &.active {
-    background-color: #fff;
+    background-color: $white;
+    padding: 20px 0;
   }
 
   &__inner {
@@ -44,16 +70,42 @@
 
   &__menu {
     display: flex;  
+    align-items: center;
   }
   
   &__list {    
     display: flex;  
     align-items: center;  
-    margin-right: 52px;   
+    margin-right: 52px; 
+    
+    @include mq('tablet') {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: start;      
+      padding: 134px 15px 30px;
+      margin-right: 0;
+      overflow-y: auto;
+      border-bottom: 1px solid #EEEFF3;
+      transform: translateY(-200%);
+      transition: transform 0.5s;
+
+      &--active {
+        transform: translateY(0);
+      }
+      
+    }
   }
 
   &__list-item:not(:last-child) {
     margin-right: 45px;
+
+    @include mq('tablet') {
+      margin-bottom: 30px;
+      margin-right: 0;
+    }
   }  
 
   &__list-link {
@@ -67,6 +119,10 @@
 
 .user-nav {
   display: flex;  
+
+  @include mq('tablet') {
+    margin-right: 30px;
+  }
 
   &__btn {
     position: relative;
@@ -97,8 +153,8 @@
     } 
 
     &:focus {
-      background: rgba(255, 122, 80, 0.10);
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      background: rgba($orange-500, 0.10);
+      box-shadow: 0 0 0 2px rgba($orange-900, 0.70);
     } 
     
     &:focus .user-nav__btn-icon {
@@ -111,12 +167,14 @@
     }
 
     &:active {
-      background-color: rgba(255, 122, 80, 0.10);
+      background-color: rgba($orange-500, 0.10);
       box-shadow: none;    
     } 
   } 
   
   &__btn-icon { 
+    width: 21px;
+    height: 22px;
     stroke: $darkblue-900; 
     fill: none;  
     transition: stroke 0.5s;
@@ -136,8 +194,27 @@
   }
 }
 
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  @include burger;
+
+  @include mq('tablet') {
+    display: block;
+  }    
+}
+
 .promo {
-  padding-bottom: 60px;
+  padding: 160px 0 60px;
+
+  @include mq('tablet') {
+    padding: 100px 0 0;
+  }
+
+  @include mq('phone') {
+    padding: 72px 0 0;
+  }
 
   &__inner {
     display: flex;
@@ -145,9 +222,25 @@
     justify-content: center;
     gap: 20px;    
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 560px 660px;
     background-position: right;
-    height: 70vh;
+    height: 70vh;    
+
+    @include mq('tablet') {
+      position: relative;
+
+      &::after {
+        @include pseudo;
+        inset: 0;
+        background-color: rgba($silver-100, 0.85);
+        z-index: 1;
+      }
+    }
+
+    @include mq('phone') {
+      height: 42vh;
+      background-size: contain;
+    }
   }
 
   &__title {
@@ -156,18 +249,35 @@
     line-height: 1.3;
     max-width: 450px;
     width: 100%;
-    text-transform: uppercase;    
+    text-transform: uppercase;
+    z-index: 2;
+
+    @include mq('tablet') {
+      max-width: 390px;
+      font-size: 56px;
+    }
+    
+    @include mq('phone') {
+      max-width: 257px;
+      font-size: 40px;
+    }
   }
 
   &__subtitle {
     color: $orange-900;
     margin-bottom: 20px;
+    z-index: 2;
   }
 
   &__text {
     max-width: 450px;
     width: 100%;
     @include line-clamp(3);
+    z-index: 2;
+    
+    @include mq('phone') {
+      max-width: 345px;
+    }
   }
 
   &__btn {    
@@ -175,7 +285,19 @@
     letter-spacing: 0.54px;    
     padding: 12px 32px;    
     margin-right: 34px;
-  }  
+    z-index: 2;
+
+    @include mq('phone') {
+      font-size: 14px;
+      letter-spacing: 0.42px;
+      padding: 8px 24px;
+      margin-right: 30px;
+    }
+  } 
+  
+  &__box {
+    z-index: 2;
+  }
 }
 
 .popular-categories {
@@ -184,15 +306,39 @@
 
   &__title {
     margin-bottom: 60px;
+
+    @include mq('tablet-2') {
+      margin-bottom: 40px;
+    }
+
+    @include mq('phone') {
+      margin-bottom: 30px;
+    }
   }
 
   &__filter-btn {
     display: flex;
-    margin-bottom: 45px;    
+    margin-bottom: 45px;
+    
+    @include mq('desktop') {
+      overflow-x: auto;
+    }
+
+    @include mq('tablet') {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item-btn {
+    padding: 3px;
   }
 
   &__item-btn:not(:last-child) {
     margin-right: 20px;
+
+    @include mq('tablet') {
+      margin-right: 10px;
+    }
   }
 
   &__link {
@@ -209,13 +355,30 @@
     background-color: $white;
     box-shadow: 0 0 0 1px $silver-200;
     transition: background-color 0.5s, box-shadow 0.5s;
+    white-space: nowrap;
 
-    &:hover {
-      background-color: rgba(255, 122, 80, 0.10);
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+    @include mq('tablet') {
+      padding: 11px 24px;
+    }    
+
+    &.mixitup-control-active {
+      background-color: $orange-900;
+    
+      & .popular-categories__btn-text {
+        color: $white;
+      }
+      
+      & .popular-categories__btn-icon{
+        fill: $white;
+      }
     }
 
-    &:hover .popular-categories__btn-icon path {
+    &:hover {
+      background-color: rgba($orange-500, 0.10);
+      box-shadow: 0 0 0 2px rgba($orange-900, 0.70);
+    }
+
+    &:hover .popular-categories__btn-icon {
       fill: $orange-900;
     }
 
@@ -225,7 +388,7 @@
 
     &:focus {
       background-color: $white;
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0 0 0 2px rgba($orange-900, 0.70);
     }
 
     &:focus .popular-categories__btn-text {
@@ -238,23 +401,13 @@
 
     &:active {
       background-color: $white;
-      box-shadow: 0 -5px 12px 0 rgba(255, 104, 56, 0.20) inset;
+      box-shadow: 0 -5px 12px 0 rgba($orange-900, 0.20) inset;
     }    
-  }
-
-  &__btn--active {
-    background-color: $orange-900;
-  }
-
-  &__btn--active .popular-categories__btn-text {
-    color: $white;
-  }
-
-  &__btn--active .popular-categories__btn-icon--active{
-    fill: $white;
-  }
+  }  
 
   &__btn-icon {
+    width: 44px;
+    height: 44px;
     fill: $dark;
     transition: fill 0.5s;
   }
@@ -262,16 +415,40 @@
   &__btn-text {
     line-height: 1.3;
     transition: color 0.5s;
+
+    @include mq('phone') {
+      font-size: 14px;
+    }
   }
 
   &__catalog {
-    display: flex;
-    justify-content: space-between;
+    display: flex;    
     flex-wrap: wrap;
     column-gap: 30px;
     row-gap: 30px;
     margin-bottom: 60px;
-  }  
+
+    @include mq('tablet') {      
+      margin-bottom: 30px;
+      column-gap: 15px;
+      row-gap: 15px;
+    }
+
+    @include mq('phone') {      
+      margin-bottom: 30px;
+      column-gap: 5px;
+      row-gap: 10px;
+    }
+  } 
+  
+  &__item {
+    max-width: 210px;
+    width: 100%;
+
+    @include mq('phone') {
+      max-width: 170px;
+    }
+  } 
 }
 
 .product-card {
@@ -279,8 +456,9 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 210px;  
-  height: 100%;
+  max-width: 210px;  
+  width: 100%;
+  height: 299px;
   padding: 20px 15px;  
   background-color: $white;
   box-shadow: 0 0 0 1px $silver-200;
@@ -288,7 +466,11 @@
   transition: box-shadow 0.5s;
 
   &:hover {
-    box-shadow: 0 0 0 1px #FF6838;
+    box-shadow: 0 0 0 1px $orange-900;
+  }
+
+  &__img {
+    margin-bottom: 10px;
   }
 
   &__name {
@@ -313,17 +495,56 @@
   }
 }
 
-.delivery{
+.delivery{  
+
+  @include mq('tablet') {
+    padding-top: 0;
+  }
+
   &__inner {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 120px;
+    justify-content: right;
+    align-items: center;    
+    background-repeat: no-repeat;
+    background-size: 440px 585px;
+    background-position: 70px center;
+    height: 55vh;
+
+    @include mq('tablet-2') {
+      position: relative;
+
+      &::before {
+        @include pseudo;
+        inset: 0;
+        background-color: rgba($silver-100, 0.50);
+        z-index: 1;        
+      }
+    }
+
+    @include mq('tablet') {
+      background-position: center;
+
+      &::before {
+        background-color: rgba($silver-100, 0.85);
+      }      
+    }
   }
 
   &__content {
     max-width: 470px;
-    width: 100%;    
+    width: 100%; 
+    margin-right: 70px;
+    z-index: 2;
+
+    @include mq('tablet') {
+      margin-right: 20px;
+
+    }
+    
+    @include mq('phone') {
+      max-width: 345px;
+      margin-right: 0;
+    }
   }
 
   &__title {
@@ -331,7 +552,7 @@
   }
 
   &__text {
-    @include line-clamp(3);
+    @include line-clamp(3);    
   }
 
   &__title,
@@ -344,32 +565,58 @@
   }
 
   &__item {
-    display: flex;    
-    align-items: center;
-    gap: 30px;
+    padding-left: 64px;
     font-size: 24px;
-    @include line-clamp(1);    
+    @include line-clamp(1); 
+    position: relative;
+    
+    @include mq('tablet') {
+      padding-left: 54px;
+      font-size: 20px;
+    }
+
+    @include mq('phone') {
+      padding: 4px 0 4px 44px;
+      font-size: 18px;      
+    }
+    
+    &::before {
+      @include pseudo;
+      width: 34px;
+      height: 34px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      top: 0;
+      left: 0;
+    }
+
+    &--watch::before {
+      background-image: url(../images/sprite.svg#watch-icon);
+      filter: invert(49%) sepia(13%) saturate(4364%) hue-rotate(333deg) brightness(105%) contrast(101%);
+    }
+
+    &--courier::before {
+      background-image: url(../images/sprite.svg#courier-icon);
+      filter: invert(50%) sepia(16%) saturate(5061%) hue-rotate(171deg) brightness(99%) contrast(112%);
+    }
+
+    &--shop::before {
+      background-image: url(../images/sprite.svg#shop-icon);
+      filter: invert(39%) sepia(91%) saturate(6108%) hue-rotate(351deg) brightness(100%) contrast(95%);
+    }
+
   }
 
   &__item:not(:last-child) {
     margin-bottom: 20px;
-  }
+  }  
 
   &__btn {
     padding: 12px 32px;
   }
 
-  &__item-icon--watch {
-    fill: $orange-900;
-  }
-
-  &__item-icon--courier {
-    fill: #00AAFF;
-  }
-
-  &__item-icon--shop {
-    fill: #FF2222;
-  }
+  
 }
 
 .best-restaurants {  
@@ -393,11 +640,17 @@
   width: 100%;    
   border-radius: 10px;
   background-color: $white;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.10);
+  box-shadow: 0 3px 3px 0 rgba($black, 0.10);
   transition: box-shadow 0.5s;
   
   &:hover {
-    box-shadow: 0 3px 15px 0 rgba(255, 104, 56, 0.50);
+    box-shadow: 0 3px 15px 0 rgba($orange-900, 0.50);
+  }
+
+  &__img {
+    max-width: 370px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
   }
 
   &__descr {
@@ -406,6 +659,7 @@
 
   &__name {
     margin-bottom: 20px;
+    @extend %rubik-400;
     font-size: 24px;
     line-height: 1.3;
     @include line-clamp(1);
@@ -442,14 +696,10 @@
     align-items: center;
     width: 78px;
     border-radius: 20px;
-    transition: justify-content 0.8s;
-
-    &:hover {
-      justify-content: flex-end;
-    }
-
+    
     &:hover .restaurant-card__btn-icon {
       fill: $orange-900;
+      transform: translateX(50%);
     }
 
     &:focus .restaurant-card__btn-icon {
@@ -463,13 +713,15 @@
   
   &__btn-icon {
     fill: $white;
-    transition: fill 0.5s;
+    transition: fill 0.5s, transform 0.5s;
   }
 }
 
-.reviews__title {
-  text-align: center;
-  margin-bottom: 45px;
+.reviews {
+  &__title {
+    text-align: center;
+    margin-bottom: 45px;
+  }
 }
 
 .slider {
@@ -477,9 +729,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 48px;
   }
 
   &__img {
+    max-width: 300px;
+    width: 100%;
     border-radius: 50%;
     margin-right: 40px;
   }
@@ -506,13 +761,14 @@
   }
 
   &__blockquote::before {
-    background-image: url('../images/sprite.svg#quoteopen-icon');
+    background-image: url('../images/sprite.svg#quote-icon');
     top: 0;
     left: 0;
   }
 
   &__blockquote::after {
-    background-image: url('../images/sprite.svg#quoteclose-icon');
+    background-image: url('../images/sprite.svg#quote-icon');
+    transform: scale(-1,1);    
     right: 0;
     bottom: 0;
   }
@@ -541,8 +797,8 @@
       button {
         width: 15px;
         height: 15px;
-        padding: 0;
-        font-size: 0;
+        padding: 5px;
+        font-size: 0;        
         background-color: $gray;
         border: 2px solid transparent;
         border-radius: 50%;
@@ -550,17 +806,17 @@
 
         &:hover {
           border-color: $orange-500;
-          background-color: rgba(255, 122, 80, 0.10);
+          background-color: rgba($orange-500, 0.10);
         }
 
         &:focus {
-          box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70), 0 5px 12px 0 rgba(255, 104, 56, 0.20);
+          box-shadow: 0 0 0 2px rgba($orange-900, 0.70), 0 5px 12px 0 rgba($orange-900, 0.20);
           background-color: $gray;
         }
 
         &:active {
           box-shadow: none;
-          background-color: $orange-500;
+          background-color: $orange-300;
         }
       }
 
@@ -568,27 +824,28 @@
         button {
           background-color: $orange-900;
         }
-      }
+      }      
     }    
   }
 
   &__arrow {
     position: absolute;
-    bottom: -10px;    
+    bottom: -10px; 
+    left: 50%;   
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     border: 3px solid $gray;
     background-color: $white;
     border-radius: 50%;
-    z-index: 5;
+    z-index: 2;
     transition: border-color 0.5s, background-color 0.5s, box-shadow 0.5s;
     
     &:hover {
       border-color: $orange-500;
-      background-color: rgba(255, 122, 80, 0.10);
+      background-color: rgba($orange-500, 0.10);
     }
 
     &:hover .slider__arrow-icon {
@@ -596,7 +853,7 @@
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70), 0 5px 12px 0 rgba(255, 104, 56, 0.20);
+      box-shadow: 0 0 0 2px rgba($orange-900, 0.70), 0 5px 12px 0 rgba($orange-900, 0.20);
       background-color: $white;
       border-color: $gray;
     }
@@ -607,7 +864,7 @@
 
     &:active {
       border-color: transparent;
-      background-color: rgba(255, 122, 80, 0.10);
+      background-color: rgba($orange-500, 0.10);
       box-shadow: none;
     }
 
@@ -616,13 +873,22 @@
     }
 
     &--prev {
-      right: 57%;
+      transform: translate(-112px);
     }
   
     &--next {
-      left: 57%;
+      transform: translate(72px) scale(-1,1);
+      
     }
-  }  
+
+    &.slick-disabled {
+      border-color: $orange-900;
+
+      & .slider__arrow-icon{
+        fill: $orange-900;        
+      }
+    }    
+  }   
 
   &__arrow-icon {
     fill: $gray;
@@ -632,9 +898,12 @@
 
 .mobileapp {
   &__inner {
-    display: flex;
-    justify-content: space-between;
+    display: flex;    
     align-items: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right center;
+    height: 35vh;
   }
 
   &__content {
@@ -664,25 +933,28 @@
 .footer {
   &__top {
     display: flex;  
-    gap: 70px;
+    gap: 4vw;
     padding: 60px 0;
   }
 
   &__logo {
-    margin-bottom: 30px;
+    display: inline-block;
+    margin-bottom: 20px;
   }
 
   &__menu {
     display: grid;
-    grid-template-columns: 153px 89px 187px;    
-    grid-column-gap: 70px;    
+    grid-template-columns: 9vw 5vw 10vw;    
+    grid-column-gap: 4vw;    
   }
 
   &__menu-item {
+    padding-left: 5px;
     @include line-clamp(1);
   }
 
   &__menu-link {
+    
     font-size: 18px;
     line-height: 1.3;    
     letter-spacing: 0.18px;
@@ -691,7 +963,7 @@
   &__bottom {
     padding: 30px 0;
     text-align: center;
-    border-top: 1px solid rgba(194, 194, 194, 0.2);  
+    border-top: 1px solid rgba($gray, 0.2);  
   }
   
   &__copyright {
@@ -726,7 +998,7 @@
     }
 
     &:focus {
-      border: 1px solid rgba(194, 194, 194, 0.00);      
+      border: 1px solid rgba($gray, 0.00);      
       box-shadow: 0 0 0 2px $orange-900;
     }
   }
@@ -745,7 +1017,7 @@
     transition: box-shadow 0.5s;
 
     &:hover {
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      box-shadow: 0 0 0 2px rgba($orange-900, 0.70);
       background-color: $white;
     }
 
@@ -758,8 +1030,8 @@
     }
 
     &:focus {
-      background-color: rgba(255, 122, 80, 0.10);
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      background-color: rgba($orange-500, 0.10);
+      box-shadow: 0 0 0 2px rgba($orange-900, 0.70);
     }
 
     &:focus .form__btn-icon {
@@ -771,7 +1043,7 @@
     }
 
     &:active {
-      background-color: rgba(255, 122, 80, 0.10);
+      background-color: rgba($orange-500, 0.10);
       box-shadow: none;
     }
 
@@ -803,15 +1075,24 @@
   &__link-icon {
     fill: none;
     stroke: $dark;
+    transition: stroke 0.5s;
   }
 
   &__link {   
     display: flex;
     gap: 10px;
-    align-items: center; 
+    align-items: center;    
     font-size: 16px;
     line-height: 2;
     margin-bottom: 15px;
+
+    &:hover .contact__link-icon {
+      stroke: $orange-900;
+    }
+
+    &:active .contact__link-icon {
+      stroke: $dark;
+    }
   }   
 }
 
@@ -842,8 +1123,8 @@
     }
 
     &:focus {
-      background-color: rgba(255, 122, 80, 0.10);
-      box-shadow: 0 0 0 2px rgba(255, 104, 56, 0.70);
+      background-color: rgba($orange-500, 0.10);
+      box-shadow: 0 0 0 2px rgba($orange-900, 0.70);
     }
 
     &:focus .contact-social__link-icon {
@@ -864,25 +1145,3 @@
     transition: fill 0.5s;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@import 'media';

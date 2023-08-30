@@ -25,8 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   burgerClose.addEventListener('click', () => {
-    mobileMenu.classList.remove('menu');     
+    mobileMenu.classList.toggle('menu--active');
+    bodyLock.classList.remove('lock');     
   });
+
 });
 
 $(window).on('load resize', function () {

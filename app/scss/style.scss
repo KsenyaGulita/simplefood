@@ -83,10 +83,7 @@
       padding: 25px 15px;
       align-items: flex-start;
       border-top: 1px solid $silver;
-      border-bottom: 1px solid $silver;
-      
-      
-      // transform: translateX(-300%);
+      border-bottom: 1px solid $silver;      
     }
   }
 
@@ -186,19 +183,22 @@
   }
 }
 
-.menu {
+.menu { 
   
   @include mq('tablet') {
     position: absolute;
     width: 90%;
     height: 100vh;
-
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    left: 0;    
     background-color: $silver-100;
-    z-index: 999;    
+    z-index: 999;
+    transform: translateX(-100%);  
+    transition: transform 0.5s;  
+  }
+
+  &--active {
+    transform: translateX(0%);
   }
 
   &__top {
@@ -207,9 +207,17 @@
       padding: 25px 15px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      
+      align-items: center;      
     }
+  }
+
+  &__logo {
+    width: 200px;
+    height: 39px;
+  }
+
+  &__logo-img {
+    height: 100%;
   }
 
   .address {
@@ -225,16 +233,16 @@
   
   .menu-close {
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 44px;
+    height: 44px;
     background-color: transparent;    
 
     &__line,
     &::before {
       position: absolute;
-      left: 0;
+      right: 0;
       top: 50%;
-      width: 40px;
+      width: 26px;
       height: 2px;
       background-color: $darkblue-900;            
     }

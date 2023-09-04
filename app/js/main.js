@@ -1,8 +1,36 @@
 $(function(){  
 
-  $(window).on('scroll', function() {
-    $('.header').toggleClass('active', $(this).scrollTop() > 0);
-  });      
+  $('.products__select').styler();
+
+  $(".filter-price__input").ionRangeSlider({
+    type: "double",
+    min: 0,
+    max: 1200,
+    from: 100,
+    to: 1000,
+
+    onStart: function (data) {
+      $('.filter-price__from').text(data.from);  
+      $('.filter-price__to').text(data.to);  
+    },
+    
+    onChange: function (data) {
+      $('.filter-price__from').text(data.from);  
+      $('.filter-price__to').text(data.to);  
+    },
+  });
+
+  let headerTop = $('.header');
+  let scrollPos = $(window).scrollTop();   
+
+  $(window).on('scroll load resize', function(){
+    scrollPos = $(this).scrollTop();
+    if (scrollPos > 50) {
+      headerTop.addClass('active');
+    } else {
+      headerTop.removeClass('active');
+    }
+  });
   
 });
 
@@ -15,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bodyLock = document.querySelector('body'); 
 
   burger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('menu--active'); 
+    mobileMenu.classList.add('menu--active'); 
     if (mobileMenu.classList.contains('menu--active'))  { 
       bodyLock.classList.add('lock'); 
     }
@@ -25,8 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   burgerClose.addEventListener('click', () => {
-    mobileMenu.classList.toggle('menu--active');
+    mobileMenu.classList.remove('menu--active');
     bodyLock.classList.remove('lock');     
+  });
+
+  document.addEventListener('click', function (e) {
+    if (e.target !== burger && e.target !== mobileMenu) {      
+      mobileMenu.classList.remove('menu--active');
+      bodyLock.classList.remove('lock');
+    }
   });
 
 });

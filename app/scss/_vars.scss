@@ -1,11 +1,14 @@
 $orange-900:   #ff6838;
 $orange-500:   #ff7a50;
 $orange-300:   #FFAE94;
+$orange-100:   #FAEDED;
 $white:        #fff;
 $silver-200:   #ececec;
 $silver-100:   #f9faff;
 $silver:       #EEEFF3;
 $gray:         #c2c2c2;
+$gray-100:     #C1C1C1;
+$darkgray:     #505050;
 $darkblue-900: #363853;
 $dark:         #31352b;
 $black:        #000;
@@ -35,3 +38,11 @@ $burgerWidth: 30px;
 $burgerHeight: 20px;
 $burgerLineHeight: 2px;
 $burgerColor: $darkblue-900;
+
+%checkbox-hidden {
+  position: absolute; 
+  width: 1px;
+  height: 1px;
+  overflow: hidden;  
+  clip: rect(0, 0, 0, 0);  
+}

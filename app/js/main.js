@@ -37,10 +37,11 @@ $(function(){
 
 document.addEventListener('DOMContentLoaded', () => {  
 	
-  const burger = document.querySelector('.burger');
+  const burger      = document.querySelector('.burger');
   const burgerClose = document.querySelector('.menu-close');
-  const mobileMenu = document.querySelector('.menu');  
-  const bodyLock = document.querySelector('body'); 
+  const mobileMenu  = document.querySelector('.menu');  
+  const bodyLock    = document.querySelector('body');
+  const filter      = document.querySelector('products__btn');
 
   burger.addEventListener('click', () => {
     mobileMenu.classList.add('menu--active'); 
@@ -73,20 +74,26 @@ $(window).on('load resize', function () {
           dots: true,
           infinite: true,
           speed: 1500,
-          slidesToShow: 2, 
-          slidesToScroll: 1,
-          
-          responsive: [
-            {
-              breakpoint: 561,
-              settings: {
-                slidesToShow: 1, 
-              }
-            }      
-          ]
+          slidesToShow: 1, 
+          slidesToScroll: 1,         
         });
   } else {
      $('.best-restaurants__catalog.slick-initialized').slick('unslick');
+  }
+});
+
+$(window).on('load resize', function () {
+  if ($(window).width() < 769) {
+     $('.promotions__list:not(.slick-initialized)').slick({
+          arrows: false,
+          dots: true,
+          infinite: true,
+          speed: 1500,
+          slidesToShow: 1, 
+          slidesToScroll: 1,           
+        });
+  } else {
+     $('.promotions__list.slick-initialized').slick('unslick');
   }
 });
 

@@ -135,7 +135,7 @@
 
    <main class="main">
 
-    <section class="breadcrumbs">
+    <div class="breadcrumbs">
       <div class="container">
         <ul class="breadcrumbs__list">
           <li class="breadcrumbs__item">
@@ -147,10 +147,10 @@
             <a class="breadcrumbs__link" href="#">
               Каталог товаров
             </a>
-          </li>          
+          </li>                 
         </ul>
       </div>
-    </section>
+    </div>
 
     <section class="products section">
       <div class="container">
@@ -159,20 +159,26 @@
           <h2 class="products__title title">Каталог продуктов</h2>
           <div class="products__selects">
             <form class="products__form" action="#">
+              <button class="products__btn" type="button">
+                <span class="sr-only">Открыть фильтр-меню</span>
+              </button>
 
-              <select class="products__sort products__select">
-                <option value="">По названию</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-              </select>
+              <label class="products__label" for="sort">               
+              </label>
+              <select class="products__sort products__select" name="sort" id="sort">
+                <option value="1">По названию</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>             
 
-              <select class="products__show products__select">
-                <option value="">по 12</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-              </select>
+              <label class="products__label" for="show"></label>
+              <select class="products__show products__select" name="show" id="show">
+                <option value="1">по 12</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>             
               
             </form>           
           </div>
@@ -476,6 +482,32 @@
               </li>
               
             </ul>
+
+            <div class="pagination">
+              <a class="pagination__prev pagination__arrows" href="#">
+                <span class="sr-only">Предыдушая страница</span>
+              </a>
+              <ul class="pagination__list">
+                <li class="pagination__item">
+                  <a class="pagination__link pagination__link--active" href="#">1</a>
+                </li>
+                <li class="pagination__item">
+                  <a class="pagination__link" href="#">2</a>
+                </li>
+                <li class="pagination__item">
+                  <span class="pagination__link">...</span>
+                </li>
+                <li class="pagination__item">
+                  <a class="pagination__link" href="#">9</a>
+                </li>
+                <li class="pagination__item">
+                  <a class="pagination__link" href="#">10</a>
+                </li>
+              </ul>
+              <a class="pagination__next pagination__arrows" href="#">
+                <span class="sr-only">Следующая страница</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -503,6 +535,35 @@
             </a>
           </div>          
         </div>
+      </div>
+    </section>
+
+    <section class="promotions section">
+      <div class="container">
+        <h2 class="promotions__title title">Акции и скидки</h2>
+        <ul class="promotions__list">
+
+          <li class="promotions__item">
+            <article class="promotions-card card">
+              <img class="promotions-card__img" src="images/restaurants/restaurant-1.jpg" width="370" height="300" alt="Blaze Pizza">           
+              <p class="promotions-card__text">Скидка 50% на вторую пиццу</p>            
+            </article>
+          </li>
+
+          <li class="promotions__item">
+            <article class="promotions-card card">
+              <img class="promotions-card__img" src="images/restaurants/restaurant-5.jpg" width="370" height="300" alt="KFC">           
+              <p class="promotions-card__text">Картошечка из KFC даром при заказе бургера</p>            
+            </article>
+          </li>
+
+          <li class="promotions__item">
+            <article class="promotions-card card">
+              <img class="promotions-card__img" src="images/restaurants/restaurant-6.jpg" width="370" height="300" alt="Black Burger">           
+              <p class="promotions-card__text">Чёрные бургеры на чёрный день</p>            
+            </article>
+          </li>
+        </ul>
       </div>
     </section>
 

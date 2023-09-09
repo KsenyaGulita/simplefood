@@ -41,7 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const burgerClose = document.querySelector('.menu-close');
   const mobileMenu  = document.querySelector('.menu');  
   const bodyLock    = document.querySelector('body');
-  const filter      = document.querySelector('products__btn');
+  const filter      = document.querySelector('.products__btn');
+  const filterClose = document.querySelector('.products__filters-close');
+  const filterMenu  = document.querySelector('.products__filters');
 
   burger.addEventListener('click', () => {
     mobileMenu.classList.add('menu--active'); 
@@ -58,11 +60,27 @@ document.addEventListener('DOMContentLoaded', () => {
     bodyLock.classList.remove('lock');     
   });
 
-  document.addEventListener('click', function (e) {
-    if (e.target !== burger && e.target !== mobileMenu) {      
-      mobileMenu.classList.remove('menu--active');
+  filter.addEventListener('click', () => {
+    console.log('yes')
+    filterMenu.classList.add('products__filters--active'); 
+    if (filterMenu.classList.contains('products__filters--active'))  { 
+      bodyLock.classList.add('lock'); 
+    }
+    else {       
       bodyLock.classList.remove('lock');
     }
+  });
+
+  filterClose.addEventListener('click', () => {
+    filterMenu.classList.remove('products__filters--active');
+    bodyLock.classList.remove('lock');     
+  });
+
+  document.addEventListener('click', function (e) {
+    if (e.target !== burger && e.target !== mobileMenu) {      
+      mobileMenu.classList.remove('menu--active');      
+      bodyLock.classList.remove('lock');
+    }    
   });
 
 });
@@ -114,6 +132,11 @@ $('.reviews__slider').slick({
   ] 
 
 });
+
+
+// $(document).on('click', ".products__btn", function(){
+//   $('.products__filters').addClass('active')
+// });
 
 
 

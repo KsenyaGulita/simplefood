@@ -133,11 +133,4 @@ $('.reviews__slider').slick({
 
 });
 
-
-// $(document).on('click', ".products__btn", function(){
-//   $('.products__filters').addClass('active')
-// });
-
-
-
 var mixer = mixitup('.popular-categories__catalog');

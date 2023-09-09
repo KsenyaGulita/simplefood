@@ -289,17 +289,23 @@
     background-repeat: no-repeat;
     background-size: 560px 660px;
     background-position: right;
+
+    @include mq('tablet-2') {
+      &::after {
+        @include pseudo;
+        inset: 0;
+        background-color: rgba($silver-100, 0.50);
+        z-index: 0;
+      }
+    }
     
     @include mq('tablet') {
       position: relative;
       padding: 100px 0;
       background-size: contain;
 
-      &::after {
-        @include pseudo;
-        inset: 0;
-        background-color: rgba($silver-100, 0.85);
-        z-index: 0;
+      &::after {        
+        background-color: rgba($silver-100, 0.85);        
       }
     }
 

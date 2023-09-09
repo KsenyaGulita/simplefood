@@ -154,7 +154,7 @@ body {
   background-color: $white;
   box-shadow: 0 3px 3px 0 rgba($black, 0.10);
   transition: box-shadow 0.5s;  
-  
+
   &:hover {
     box-shadow: 0 3px 15px 0 rgba($orange-900, 0.50);
   }
@@ -190,9 +190,20 @@ body {
   display: flex;
   justify-content: center;
 
+  @include mq('tablet') {
+    padding-top: 30px;
+  }
+
   &__list {
     display: flex;
     align-items: center;
+  }
+
+  &__item:nth-child(2),
+  &__item:nth-child(4) {
+    @include mq('tablet') {
+      display: none;
+    }
   }
 
   &__link {

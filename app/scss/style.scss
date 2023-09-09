@@ -1116,16 +1116,6 @@
     @include mq('desktop') {
       background-size: 50%;
     }
-    
-    // @include mq('tablet-2') {      
-    //   position: relative;   
-      
-    //   &::after {
-    //     @include pseudo;
-    //     inset: 0;
-    //     background-color: rgba($silver-100, 0.50);        
-    //   }
-    // }
 
     @include mq('tablet') {
       text-align: center;      
@@ -1166,7 +1156,7 @@
 
   &__text {    
     margin-bottom: 30px;    
-    @include line-clamp(3);
+    @include line-clamp(4);
 
     @include mq('phone') {
       margin-bottom: 15px;
@@ -1557,6 +1547,10 @@
     }
   }
 
+  &__select {
+    z-index: 1;
+  }
+
   &__select:not(:last-child) {
     margin-right: 15px;
 
@@ -1567,6 +1561,38 @@
 
   &__inner {
     display: flex;
+
+    @include mq('tablet') {
+      justify-content: center;
+    }
+  }
+
+  .filter-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: $orange-100;
+
+    &__line,
+    &::before {
+      position: absolute;
+      right: 2px;
+      top: 50%;
+      width: 26px;
+      height: 2px;
+      background-color: $darkblue-900;            
+    }
+
+    &__line {
+      transform: translate(-5px, -1px) rotate(-45deg);
+    }
+
+    &::before {
+      @include pseudo;
+      transform: translate(-5px, -1px) rotate(45deg);     
+    }
   }
 
   &__filters {
@@ -1575,11 +1601,19 @@
 
     @include mq('tablet') {
       position: absolute;
+      width: 90%;
+      background-color: $white;
+      padding: 80px 50px 0 0;
+      top: 0;
+      left: 0;
+      z-index: 1000;
       transform: translateX(-150%);
-
-      &--active {
-        transform: translateX(0%);
-      }
+      transition: transform 0.5s;     
+    } 
+    
+    &--active {
+      transform: translateX(0%);
+      overflow-y: hidden;
     }
 
     .filter-categories {
@@ -1707,6 +1741,10 @@
         @include mq('tablet-2') {
           padding: 4px;
         }
+
+        @include mq('tablet') {
+          padding: 12px 20px;
+        }
       }
 
       &__from:focus,
@@ -1730,6 +1768,10 @@
     @include mq('tablet-2') {
       grid-template-columns: repeat(3,1fr);
       grid-template-rows: repeat(4,1fr);
+    }
+
+    @include mq('phone') {
+      grid-template-columns: repeat(2,1fr);
     }
   }
 }
@@ -1810,6 +1852,12 @@
     margin-bottom: 30px;
     background-color: $white;
     border: 1px solid $silver-200;
+    border-radius: 5px;
+
+    @include mq('tablet') {
+      width: 270px;
+      
+    }
   }
   
   &__title {

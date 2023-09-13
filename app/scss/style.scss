@@ -164,7 +164,8 @@
   &__btn-icon { 
     width: 21px;
     height: 22px;
-    stroke: $darkblue-900; 
+    stroke: $darkblue-900;
+    stroke-width: 1.5; 
     fill: none;  
     transition: stroke 0.5s;
   } 
@@ -289,17 +290,23 @@
     background-repeat: no-repeat;
     background-size: 560px 660px;
     background-position: right;
+
+    @include mq('tablet-2') {
+      &::after {
+        @include pseudo;
+        inset: 0;
+        background-color: rgba($silver-100, 0.50);
+        z-index: 0;
+      }
+    }
     
     @include mq('tablet') {
       position: relative;
       padding: 100px 0;
       background-size: contain;
 
-      &::after {
-        @include pseudo;
-        inset: 0;
-        background-color: rgba($silver-100, 0.85);
-        z-index: 0;
+      &::after {        
+        background-color: rgba($silver-100, 0.85);        
       }
     }
 
@@ -1213,17 +1220,12 @@
   &__logo-img {
     width: 200px;
     height: 39px;
-  }
+  }  
 
   &__menu {
     display: grid;
     grid-template-columns: repeat(3, auto);    
-    grid-column-gap: 4vw; 
-    
-    @include mq('desktop') {
-      
-      
-    }
+    grid-column-gap: 4vw;     
 
     @include mq('tablet-2') { 
       grid-template-columns: repeat(2, auto); 
@@ -1381,6 +1383,7 @@
   &__link-icon {
     fill: none;
     stroke: $dark;
+    stroke-width: 1.5;
     transition: stroke 0.5s;
   }
 
@@ -1488,8 +1491,13 @@
       background-size: cover;
       filter: invert(96%) sepia(4%) saturate(23%) hue-rotate(317deg) brightness(83%) contrast(85%);
       transform: scale(-1,1);
+      transition: filter 0.5s;
     }
-  }
+
+    &:hover:not(:last-child)::after {
+      filter: invert(45%) sepia(66%) saturate(905%) hue-rotate(333deg) brightness(102%) contrast(101%);
+    }
+  }  
 }
 
 .products {
@@ -1568,12 +1576,15 @@
   }
 
   .filter-close {
+    display: none;
     position: absolute;
     top: 20px;
     right: 20px;
     width: 40px;
     height: 40px;
     background-color: $orange-100;
+
+    
 
     &__line,
     &::before {
@@ -1613,7 +1624,11 @@
     
     &--active {
       transform: translateX(0%);
-      overflow-y: hidden;
+      overflow-y: auto;
+
+      .filter-close {
+        display: block;
+      }
     }
 
     .filter-categories {
@@ -2016,8 +2031,9 @@
       object-fit: cover;
     }
 
-    &__text {      
+    &__title {      
       padding: 15px 20px;
+      @extend %rubik-400;
       font-size: 24px;
       line-height: 1.3;
       
@@ -2027,5 +2043,235 @@
     }
   }
 }
+
+// .swiper {
+//   width: 610px;
+//   height: 550px;
+// }
+
+.product {
+  .product-item {
+
+    &__inner {
+      display: flex;
+    }
+
+    &__slider {      
+      flex: 0 0 50%;
+      margin: 0 30px 0 0;
+      width: 610px;
+      height: 550px;
+    }
+    
+    &__content {
+      max-width: 535px;
+    }
+
+    &__title {
+      margin-bottom: 30px;
+    }
+
+    &__star {
+      display: flex; 
+      margin-bottom: 25px;
+    } 
+    
+    &__price {
+      
+      @extend %rubik-500;
+      font-size: 25px;
+      line-height: 1.4;
+      color: $darkblue-900;
+    }
+
+    &__form {
+      display: flex;
+      margin: 20px 0 30px;
+    }
+
+    &__input {
+      text-align: center;      
+      
+      &::placeholder {
+        color: $darkblue-900;        
+      }
+    }
+
+    &__btn {       
+      margin-left: 15px;
+      padding: 13px 38px;
+      @extend %rubik-500;
+      font-size: 14px;
+      line-height: 1.3;
+      
+      &:hover .product-item__btn-icon {
+        stroke: $orange-900;
+      }
+
+      &:focus .product-item__btn-icon {
+        stroke: $orange-900;
+      }
+
+      &:active .product-item__btn-icon {
+        stroke: $orange-900;
+      }
+    }
+
+    &__btn-icon {           
+      width: 16px;
+      height: 16px; 
+      vertical-align: middle;     
+      margin-right: 15px;
+      stroke: $white;
+      stroke-width: 2; 
+      fill: none;  
+      transition: stroke 0.5s;      
+    }
+
+    &__subtitle {
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+      @extend %rubik-400;
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: 0.72px;
+      border-bottom: 1px solid $silver;
+      color: $darkblue-900;
+    }
+
+    &__list {
+      margin-bottom: 20px;
+    }
+
+    &__text {
+      max-width: 535px;
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: 0.46px;
+      color: $darkgray;
+    }
+
+    &__img {
+      position: relative;
+      padding-bottom: 100%;
+      border-radius: 5px;
+      background-color: $white;
+      box-shadow: 0 0 0 1px $silver-200;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        max-width: 68%;
+        max-height: 68%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.jq-number__field {  
+  width: 158px;
+  height: 44px;
+  background-color: $orange-100;
+  border: 1px solid transparent;
+  border-bottom-color: transparent;
+  border-radius: 4px;  
+  box-shadow: none;
+}
+
+.jq-number { 
+  position: relative; 
+  padding: 0;
+}
+
+.jq-number__field input {  
+  width: 100%;
+  height: 44px;
+  padding: 10px 0;
+  border: none;  
+  background: none;
+  @extend %rubik-400;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.6px;
+  color: $darkblue-900;
+}
+
+.jq-number__spin {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid transparent;
+  border-bottom-color: transparent;
+  border-radius: 4px 0 0 4px;
+  background: transparent; 
+  background-color: $orange-900; 
+  box-shadow: none;  
+  text-shadow: none;
+  cursor: pointer;
+}
+
+.jq-number__spin:after {
+  @include pseudo;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 12px;
+  width: 20px;
+  height: 2px;
+  background-color: $white;   
+}
+
+.jq-number__spin.minus {
+  top: 0; 
+  left: 0;
+
+  &::after {    
+    left: 12px;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: none;
+    border-left: 1px solid transparent;
+    border-radius: 5px; 
+  }
+}
+
+.jq-number__spin.plus {
+  top: 0; 
+  right: 0;
+  border-radius: 0 4px 4px 0;
+
+  &::after {
+    top: 20px;
+    left: 12px;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-bottom: none;
+    border-left: 1px solid transparent;
+    border-radius: 5px;
+  }
+
+  &::before {
+    @include pseudo;
+    width: 20px;
+    height: 2px;
+    top: 20px;
+    left: 12px;
+    background-color: $white;
+    transform: rotate(90deg);
+  }
+}
+
+
+
+
+
+
+
 
 

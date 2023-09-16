@@ -1,0 +1,46 @@
+.breadcrumbs {
+  padding: 24px 0;
+  background-color: rgba($orange-500, 0.10);
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    position: relative;    
+    @extend %rubik-400;
+    font-size: 14px;
+    line-height: 1.2;
+    letter-spacing: 0.42px;
+    color: $darkgray;
+
+    &:not(:first-child):not(:last-child) {
+      @include mq('phone') {
+        display: none;
+      }
+    }    
+
+    &:not(:last-child) {
+      padding-right: 17px;
+    }
+
+    &:not(:last-child)::after {
+      @include pseudo;
+      width: 6px;
+      height: 10px;
+      right: 6px;
+      top: 3px;
+      background-image: url('../images/sprite.svg#left-icon');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      filter: invert(96%) sepia(4%) saturate(23%) hue-rotate(317deg) brightness(83%) contrast(85%);
+      transform: scale(-1,1);
+      transition: filter 0.5s;
+    }
+
+    &:hover:not(:last-child)::after {
+      filter: invert(45%) sepia(66%) saturate(905%) hue-rotate(333deg) brightness(102%) contrast(101%);
+    }
+  }  
+}

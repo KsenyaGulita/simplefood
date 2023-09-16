@@ -1,0 +1,65 @@
+.mobileapp {  
+
+  &__inner {     
+    background-repeat: no-repeat;
+    background-size: 570px 380px;
+    background-position: right center;
+
+    @include mq('desktop') {
+      background-size: 50%;
+    }
+
+    @include mq('tablet') {
+      text-align: center;      
+      background-size: 0%;
+    }
+
+    @include mq('phone') {
+      text-align: left;
+    }
+  }
+
+  &__content {
+    padding: 40px 0;    
+    max-width: 540px;    
+
+    @include mq('tablet-2') {
+      max-width: 400px;       
+    }
+
+    @include mq('tablet') {
+      padding: 0;
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 45px;    
+    @include line-clamp(2);
+
+    @include mq('tablet') {
+      margin-bottom: 30px;
+    }
+
+    @include mq('phone') {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text {    
+    margin-bottom: 30px;    
+    @include line-clamp(4);
+
+    @include mq('phone') {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }  
+}

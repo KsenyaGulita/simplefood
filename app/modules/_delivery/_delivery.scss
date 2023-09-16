@@ -1,0 +1,125 @@
+.delivery{    
+
+  &__inner {
+    display: flex;
+    justify-content: right;
+    align-items: center;      
+    background-repeat: no-repeat;
+    background-size: 440px 585px;
+    background-position: 70px center;
+    
+    @include mq('desktop') {
+      background-position: left center;
+    }
+
+    @include mq('tablet-2') {
+      position: relative;      
+      background-size: contain;            
+
+      &::before {
+        @include pseudo;
+        inset: 0;        
+        background-position: left;        
+        background-color: rgba($silver-100, 0.65); 
+        z-index: 0;       
+      }
+    }   
+    
+    @include mq('tablet') {
+      justify-content: left;
+      background-position: right;
+    }
+
+    @include mq('phone') { 
+      &::before {
+        background-color: rgba($silver-100, 0.85);
+      } 
+    }
+  }
+
+  &__content {
+    max-width: 470px;
+    width: 100%;    
+    margin-right: 70px;
+    padding: 70px 0;  
+    z-index: 2;
+
+    @include mq('desktop') {
+      margin-right: 0;
+    }    
+    
+    @include mq('phone') {
+      padding: 25px 0 31px;
+      max-width: 345px;      
+    }
+  }
+
+  &__title {
+    @include line-clamp(2);
+  }
+
+  &__text {
+    @include line-clamp(4);    
+  }
+
+  &__title,
+  &__text {
+    margin-bottom: 30px;
+  } 
+  
+  &__list {
+    margin-bottom: 32px;
+  }
+
+  &__item {
+    padding-left: 64px;
+    font-size: 24px;
+    @include line-clamp(1); 
+    position: relative;
+    
+    @include mq('tablet') {
+      padding: 4px 0 3px 54px;
+      font-size: 20px;
+    }
+
+    @include mq('phone') {
+      padding: 4px 0 3px 44px;
+      font-size: 18px;      
+    }
+    
+    &::before {
+      @include pseudo;
+      width: 34px;
+      height: 34px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      top: 0;
+      left: 0;
+    }
+
+    &--watch::before {
+      background-image: url('../images/sprite.svg#watch-icon');
+      filter: invert(49%) sepia(13%) saturate(4364%) hue-rotate(333deg) brightness(105%) contrast(101%);
+    }
+
+    &--courier::before {
+      background-image: url('../images/sprite.svg#courier-icon');
+      filter: invert(50%) sepia(16%) saturate(5061%) hue-rotate(171deg) brightness(99%) contrast(112%);
+    }
+
+    &--shop::before {
+      background-image: url('../images/sprite.svg#shop-icon');
+      filter: invert(39%) sepia(91%) saturate(6108%) hue-rotate(351deg) brightness(100%) contrast(95%);
+    }
+
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 15px;
+  }  
+
+  &__btn {
+    padding: 12px 32px;
+  }  
+}

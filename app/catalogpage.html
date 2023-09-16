@@ -38,13 +38,13 @@
   
               <ul class="header__list">
                 <li class="header__list-item">
-                  <a class="header__list-link link" href="#">Главная</a>
+                  <a class="header__list-link link" href="homepage.html">Главная</a>
                 </li>
                 <li class="header__list-item">
-                  <a class="header__list-link link" href="#">Блюда</a>
+                  <a class="header__list-link header__list-link--active link" href="#">Блюда</a>
                 </li>
                 <li class="header__list-item">
-                  <a class="header__list-link header__list-link--active link" href="#">Контакты</a>
+                  <a class="header__list-link  link" href="#">Контакты</a>
                 </li>
               </ul>
   
@@ -139,7 +139,7 @@
       <div class="container">
         <ul class="breadcrumbs__list">
           <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link link" href="#">
+            <a class="breadcrumbs__link link" href="homepage.html">
               Главная 
             </a>
           </li>
@@ -165,7 +165,7 @@
 
               <label class="products__label" for="sort">               
               </label>
-              <select class="products__sort products__select" name="sorting" id="sort">
+              <select class="products__select products__select--sort" name="sorting" id="sort">
                 <option value="by name">По названию</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -173,7 +173,7 @@
               </select>             
 
               <label class="products__label" for="show"></label>
-              <select class="products__show products__select" name="showing" id="show">
+              <select class="products__select products__select--show" name="showing" id="show">
                 <option value="1">по 12</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -277,24 +277,28 @@
               <h3 class="filter-price__title filter__title">Цена</h3>
               <form class="filter-price__form" action="#">
 
-                <label class="filter-price__interval filter-price__interval--from">
-                  от
-                  <span class="filter-price__from"></span>
-                  <span>₴</span>
-                </label>
+                <div class="filter-price__controls">
+                  <label class="filter-price__interval filter-price__interval--from">
+                    от
+                    <input class="filter-price__from">
+                    <span>₴</span>
+                  </label>
+  
+                  <label class="filter-price__interval filter-price__interval--to">
+                    до
+                    <input class="filter-price__to">
+                    <span>₴</span>
+                  </label>
+                </div>                
 
-                <label class="filter-price__interval filter-price__interval--to">
-                  до
-                  <span class="filter-price__to"></span>
-                  <span>₴</span>
-                </label>
-
-                <label class="filter-price__label" for="price" aria-label="choosing price">                  
-                </label>
-                <input class="filter-price__input" type="text" id="price" data-min="0"
-                data-max="1200"
-                data-from="100"
-                data-to="1000">
+                <div class="filter-price__slider">
+                  <label class="filter-price__label" for="price" aria-label="choosing price">                  
+                  </label>
+                  <input class="filter-price__input" type="text" id="price" data-min="0"
+                  data-max="1200"
+                  data-from="100"
+                  data-to="1000">
+                </div>                
 
               </form>
             </div>

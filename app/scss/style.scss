@@ -283,6 +283,7 @@
   }  
 
   &__inner {
+    position: relative;
     display: flex;
     flex-direction: column;    
     gap: 20px; 
@@ -1563,8 +1564,16 @@
     }
   }
 
-  &__select {
-    z-index: 1;
+  &__select {   
+    z-index: 1;   
+
+    &--sort {
+      width: 152px;
+    }
+
+    &--show {
+      width: 95px;
+    }    
   }
 
   &__select:not(:last-child) {
@@ -1590,9 +1599,7 @@
     right: 20px;
     width: 40px;
     height: 40px;
-    background-color: $orange-100;
-
-    
+    background-color: $orange-100;    
 
     &__line,
     &::before {
@@ -1732,11 +1739,7 @@
 
         @include mq('desktop') {
           text-align: center;
-        }
-        
-        @include mq('tablet-2') {
-          padding: 20px 10px;          
-        }
+        }        
       }
 
       &__interval {
@@ -1744,34 +1747,45 @@
         font-size: 16px;
         line-height: 1;
         letter-spacing: 0.48px;
+
+        @include mq('tablet-2') {
+          font-size: 14px;
+        }
+
+        @include mq('tablet') {
+          font-size: 16px;
+        }
         
         &--from {
-          margin-right: 2px;
+          margin-right: 5px;
         }
       }
 
       &__from,
       &__to {
         width: 70px;
-        height: 40px;
-        padding: 12px 20px;
+        height: 40px;        
+        text-align: center;
         color: $dark;  
         background-color: $orange-100;              
         border: 1px solid $orange-100;
         border-radius: 3px; 
-        transition: border-color 0.5s; 
+        transition: border-color 0.5s;   
         
         @include mq('desktop') {
-          padding: 8px;
+          width: 50px;
         }
 
         @include mq('tablet-2') {
-          padding: 4px;
+          width: 47px;
+          height: 35px;
         }
 
         @include mq('tablet') {
-          padding: 12px 20px;
+          width: 70px;
+          height: 40px;
         }
+
       }
 
       &__from:focus,
@@ -1803,70 +1817,78 @@
   height: 47px;
   padding: 15px 41px 15px 15px;
   border: 1px solid $gray;
-  border-bottom-color: $gray;  
+  border-color: $gray;
   border-radius: 3px;
-  background: $white;  
-  box-shadow: none;  
-  color: $dark;
-  text-shadow: none;
+  background: none;
+  background-color: $white;
+  box-shadow: none;
   @extend %rubik-400;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.42px;
-  transition: border-color 0.5s;
+  color: $dark;
+  text-shadow: none; 
 
   &:hover {
-    background: $white;
+    background: transparent;
     border-color: $orange-900;
-  }
-
-  &:hover .jq-selectbox__select-text {
     color: $orange-900;
   }
-
-  &:hover .jq-selectbox__trigger-arrow {
-    filter: invert(41%) sepia(89%) saturate(483%) hue-rotate(327deg) brightness(109%) contrast(102%);
-  }
-
-  &:focus {
-    border-color: $orange-900;
-  }
-
-  &:focus .jq-selectbox__select-text {
-    color: $dark;
-  }
-
-  &:focus .jq-selectbox__trigger-arrow {
-    filter: invert(86%) sepia(0%) saturate(1449%) hue-rotate(63deg) brightness(91%) contrast(94%);
-  }
 }
 
-.jq-selectbox li, .jq-select-multiple li {
-  font-size: 14px;
-}
-
-.jq-selectbox__trigger {
+.jq-selectbox__trigger { 
   border-left: none;
 }
 
 .jq-selectbox__trigger-arrow {
   position: absolute;
   top: 17px;
-  right: 21px;
-  width: 6px;
-  height: 11px;
+  right: 15px;
+  width: 8px;
+  height: 12px;
   border: none;
   background-image: url('../images/sprite.svg#left-icon');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 10px 10px;
   background-position: center;
-  filter: invert(86%) sepia(0%) saturate(1449%) hue-rotate(63deg) brightness(91%) contrast(94%);
+  filter: invert(97%) sepia(0%) saturate(5626%) hue-rotate(174deg) brightness(88%) contrast(75%);
   transform: rotate(-90deg);
-  transition: filter 0.5s;
 }
 
-.jq-selectbox__select-text {
-  transition: color 0.5s;
+.irs-from, .irs-to, .irs-single { 
+  display: none; 
+}
+
+.irs--round .irs-line {
+  top: 30px;
+  height: 2px;
+  background-color: $gray;
+  border-radius: 0;
+}
+
+.irs--round .irs-bar {
+  top: 30px;
+  height: 2px;
+  background-color: $orange-900;
+}
+
+.irs--round .irs-handle {
+  top: 22px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid transparent;
+  background-color: $orange-900;
+  border-radius: 50%;  
+  box-shadow: none;
+  transition: background-color 0.5s;
+
+  &:hover {
+    background-color: $orange-500;
+  }
+}
+
+.irs-min, .irs-max {  
+  display: none;  
 }
 
 .filter {
@@ -1896,48 +1918,6 @@
     padding: 25px 15px;
     border-top: 1px solid $silver-200;   
   }
-}
-
-.irs--flat .irs-line {
-  top: 33px;
-  height: 2px;
-  background-color: $gray;
-  border-radius: 0;
-}
-
-.irs--flat .irs-handle {
-  top: 25px;
-  width: 18px;
-  height: 18px;
-  background-color: $orange-900;
-  border-radius: 50%;
-}
-
-.irs--flat .irs-bar {
-  top: 33px;
-  height: 2px;
-  background-color: $orange-900;
-}
-
-.irs--flat .irs-handle>i:first-child {
-  background-color: $orange-900;
-}
-
-.irs--flat .irs-min, 
-.irs--flat .irs-max {
-  display: none;
-}
-
-.irs--flat .irs-from, 
-.irs--flat .irs-to, 
-.irs--flat .irs-single {
-  display: none;
-}
-
-.irs--flat .irs-from:before, 
-.irs--flat .irs-to:before, 
-.irs--flat .irs-single:before {
-  display: none;
 }
 
 .promotions {
@@ -2092,6 +2072,28 @@
         width: 345px;
         height: 345px;
       }
+
+      .swiper-button-prev {
+        left: 45px;
+      
+        @include mq('tablet-2') {
+          display: none;
+        }
+      }
+      
+      .swiper-button-next {
+        transform: scale(-1,1);
+        right: 45px;
+      
+        @include mq('tablet-2') {
+          display: none;
+        }
+      }
+      
+      .swiper-button-next:after,
+      .swiper-button-prev:after {
+        content: none;
+      }
     }
     
     &__content {
@@ -2236,28 +2238,6 @@
       }
     }
   }
-}
-
-.swiper-button-prev {
-  left: 45px;
-
-  @include mq('tablet-2') {
-    display: none;
-  }
-}
-
-.swiper-button-next {
-  transform: scale(-1,1);
-  right: 45px;
-
-  @include mq('tablet-2') {
-    display: none;
-  }
-}
-
-.swiper-button-next:after,
-.swiper-button-prev:after {
-  content: none;
 }
 
 .jq-number__field {  
@@ -2674,17 +2654,44 @@
   
 }
 
-.interesting {
+.interesting {  
+
+  @include mq('tablet') {
+    padding-top: 5px;
+  }
 
   &__title {
     margin-bottom: 60px;
+
+    @include mq('tablet') {
+      margin-bottom: 30px;
+    }
   }
 
-  &__item {
-    padding: 3px;    
+  &__item {  
+
+    padding: 3px;
+    margin-bottom: 15px;     
   }
 
-  &__slider {
+  &__slider { 
+    margin: 0 -15px;
+
+    @include mq('phone') {
+      margin: 0 -2.5px;
+    }
+
+    .product-card {
+      max-width: 100%;
+    }    
+    
+    .slick-slide {
+      margin-inline: 15px;
+
+      @include mq('phone') {
+        margin-inline: 2.5px;
+      }
+    }
 
     .slider__arrow {
       position: absolute;
@@ -2740,16 +2747,52 @@
     
       &--next {
         transform: translateX(-50%) scale(-1,1);       
-      }
-  
-      &.slick-disabled {
-        border-color: $orange-900;
-  
-        & .slider__arrow-icon{
-          fill: $orange-900;        
-        }
-      }    
+      }     
     } 
+
+    .slick-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 15px;
+      position: relative;
+
+      li {
+        align-items: center; 
+  
+        button {
+          width: 15px;
+          height: 15px;
+          padding: 5px;
+          font-size: 0;        
+          background-color: $gray;
+          border: 2px solid transparent;
+          border-radius: 50%;
+          transition: border-color 0.5s, background-color 0.5s, box-shadow 0.5s;
+  
+          &:hover {
+            border-color: $orange-500;
+            background-color: rgba($orange-500, 0.10);
+          }
+  
+          &:focus {
+            box-shadow: 0 0 0 2px rgba($orange-900, 0.70), 0 5px 12px 0 rgba($orange-900, 0.20);
+            background-color: $gray;
+          }
+  
+          &:active {
+            box-shadow: none;
+            background-color: $orange-300;
+          }
+        }
+  
+        &.slick-active {
+          button {
+            background-color: $orange-900;
+          }
+        }      
+      }    
+    }
   }
 
   

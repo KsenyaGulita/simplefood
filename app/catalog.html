@@ -19,7 +19,7 @@
   <header class="header">
     <div class="container">
       <div class="header__inner">  
-        <a class="logo" href="#">
+        <a class="logo" href="index.html">
           <img class="logo__img" src="images/logo.svg" width="200" height="39" alt="логотип SimpleFood">          
         </a>      
         <nav class="header__menu">
@@ -27,7 +27,7 @@
           <div class="menu">
 
             <div class="menu__top">
-              <a class="logo menu__logo" href="#">
+              <a class="logo menu__logo" href="index.html">
                 <img class="logo__img menu__logo-img" src="images/logo.svg" width="200" height="39" alt="логотип SimpleFood">          
               </a>
               <button class="menu-close">
@@ -38,10 +38,10 @@
 
             <ul class="header__list">
               <li class="header__list-item">
-                <a class="header__list-link link" href="homepage.html">Главная</a>
+                <a class="header__list-link header__list-link--active link" href="#">Главная</a>
               </li>
               <li class="header__list-item">
-                <a class="header__list-link header__list-link--active link" href="catalogpage.html">Блюда</a>
+                <a class="header__list-link link" href="#">Блюда</a>
               </li>
               <li class="header__list-item">
                 <a class="header__list-link link" href="#">Контакты</a>
@@ -172,17 +172,17 @@
           </label>
           <select class="products__select products__select--sort" name="sorting" id="sort">
             <option value="by name">По названию</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option value="2">По цене</option>
+            <option value="3">По рейтингу</option>
+            <option value="4">Новинки</option>
           </select>             
 
           <label class="products__label" for="show"></label>
           <select class="products__select products__select--show" name="showing" id="show">
             <option value="1">по 12</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option value="2">по 6</option>
+            <option value="3">по 4</option>
+            <option value="4">по 2</option>
           </select>         
           
         </form>           

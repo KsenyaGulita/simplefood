@@ -1,0 +1,241 @@
+.reviews {
+
+  &__title {
+    text-align: center;
+    margin-bottom: 45px;
+
+    @include mq('tablet') {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__slider-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 48px;
+
+    @include mq('phone') {
+      flex-direction: column;
+      margin-bottom: 0;
+    }
+  }
+
+  &__slider-img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 50%;
+    margin-right: 40px;
+    
+    @include mq('tablet') {
+      max-width: 200px;
+      max-height: 200px;
+      margin-right: 20px;
+    }
+
+    @include mq('phone') {
+      max-width: 100px;
+      max-height: 100px;
+      margin: 0 0 20px;
+    }
+  }
+
+  &__slider-blockquote {
+    position: relative;
+    max-width: 570px;
+    padding: 0 40px;
+    margin-bottom: 30px;
+    @extend %rubik-i400;
+    @include line-clamp(8);
+
+    @include mq ('phone') {
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 20px;
+      padding-top: 5px;
+      font-size: 14px;
+    }
+
+    &::before,
+    &::after {
+      @include pseudo;  
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: invert(81%) sepia(10%) saturate(14%) hue-rotate(320deg) brightness(98%) contrast(83%);
+      width: 24px;
+      height: 20px;
+    }
+
+    &::before {
+      background-image: url('../images/sprite.svg#quote-icon');
+      top: 0;
+      left: 0;
+
+      @include mq('phone') {
+        left: 6px;
+      }
+    }
+
+    &::after {
+      background-image: url('../images/sprite.svg#quote-icon');
+      transform: scale(-1,1);    
+      right: 0;
+      bottom: 0;
+
+      @include mq('phone') {
+        right: 6px;
+        bottom: 5px;
+      }
+    }    
+  }
+
+  &__author {
+    margin-bottom: 15px;
+    @extend %rubik-500;
+    line-height: 1.3;
+    color: $orange-900;   
+
+    @include mq('phone') {
+      margin-left: 40px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+  }
+
+  &__position {
+    font-size: 14px;
+    line-height: 1.3;
+
+    @include mq('phone') {
+      margin-left: 40px;
+    }
+  }  
+
+  &__slider {    
+  
+    .slick-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 15px;
+      position: relative;
+
+      li {
+        align-items: center; 
+  
+        button {
+          width: 15px;
+          height: 15px;
+          padding: 5px;
+          font-size: 0;        
+          background-color: $gray;
+          border: 2px solid transparent;
+          border-radius: 50%;
+          transition: border-color 0.5s, background-color 0.5s, box-shadow 0.5s;
+  
+          &:hover {
+            border-color: $orange-500;
+            background-color: rgba($orange-500, 0.10);
+          }
+  
+          &:focus {
+            box-shadow: 0 0 0 2px rgba($orange-900, 0.70), 0 5px 12px 0 rgba($orange-900, 0.20);
+            background-color: $gray;
+          }
+  
+          &:active {
+            box-shadow: none;
+            background-color: $orange-300;
+          }
+        }
+  
+        &.slick-active {
+          button {
+            background-color: $orange-900;
+          }
+        }      
+      }    
+    }
+  
+    .slider__arrow {
+      position: absolute;
+      bottom: -10px; 
+      left: 50%;   
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border: 3px solid $gray;
+      background-color: $white;
+      border-radius: 50%;
+      z-index: 2;
+      transition: border-color 0.5s, background-color 0.5s, box-shadow 0.5s;
+
+      @include mq('phone') {
+        bottom: 77%;
+        left: 45%;
+      }     
+      
+      &:hover {
+        border-color: $orange-500;
+        background-color: rgba($orange-500, 0.10);
+      }
+  
+      &:hover .slider__arrow-icon {
+        fill: $orange-500;
+      }
+  
+      &:focus {
+        box-shadow: 0 0 0 2px rgba($orange-900, 0.70), 0 5px 12px 0 rgba($orange-900, 0.20);
+        background-color: $white;
+        border-color: $gray;
+      }
+  
+      &:focus .slider__arrow-icon {
+        fill: $gray;
+      }
+  
+      &:active {
+        border-color: transparent;
+        background-color: rgba($orange-500, 0.10);
+        box-shadow: none;
+      }
+  
+      &:active .slider__arrow-icon {
+        fill: $orange-900;
+      }
+  
+      &--prev {
+        transform: translate(-112px);
+
+        @include mq('phone') {
+          transform: translateX(-310%);
+        }
+      }
+    
+      &--next {
+        transform: translate(72px) scale(-1,1);
+
+        @include mq('phone') {
+          transform: translateX(310%) scale(-1,1);
+        }
+        
+      }
+  
+      &.slick-disabled {
+        border-color: $orange-900;
+  
+        & .slider__arrow-icon{
+          fill: $orange-900;        
+        }
+      }    
+    }   
+  
+    .slider__arrow-icon {
+      fill: $gray;
+      transition: fill 0.5s;
+    }
+  }
+}

@@ -303,6 +303,7 @@
 }
 
 .jq-selectbox__select {
+  z-index: 2;
   height: 47px;
   padding: 15px 41px 15px 15px;
   border: 1px solid $gray;
@@ -368,11 +369,18 @@
   transition: filter 0.5s;
 }
 
+.jq-selectbox__dropdown ul { 
+  border: 1px solid $gray; 
+  border-radius: 0 0 3px 3px;
+  background-color: $white;
+  padding: 15px 15px 10px 15px; 
+}
+
 .jq-selectbox__dropdown ul li {
   font-size: 14px;
-  line-height: 1.2em;
-  font-weight: 400;
-  color: black;
+  line-height: 1.2;  
+  color: $dark;
+  margin-bottom: 5px;
 }
 
 .irs-from, .irs-to, .irs-single { 

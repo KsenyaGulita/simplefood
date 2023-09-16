@@ -149,9 +149,9 @@
             </a>
           </li>
           <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="#">
+            <span class="breadcrumbs__link">
               Чизбургер с листьями салата
-            </a>
+            </span>
           </li>                 
         </ul>
       </div>
@@ -163,23 +163,29 @@
           <div class="product-item__inner">
 
             <div class="product-item__slider swiper">
-              <div class="swiper-wrapper">
+              <div class="product-item__slider-wrapper swiper-wrapper">
                 
-                <div class="swiper-slide">
+                <div class="product-item__slide swiper-slide">
                   <div class="product-item__img">
-                    <img src="images/products/product-1.png" width="400" height="400" alt="Чизбургер с листьями салата">
+                    <a class="product-item__link" data-fancybox="slide-1" href="images/products/product-1.png">
+                      <img src="images/products/product-1.png" width="400" height="400" alt="Чизбургер с листьями салата">
+                    </a>                    
                   </div>
                 </div>
 
-                <div class="swiper-slide">
+                <div class="product-item__slide swiper-slide">
                   <div class="product-item__img">
-                    <img src="images/products/product-1.png" width="400" height="400" alt="Чизбургер с листьями салата">
+                    <a class="product-item__link" data-fancybox="slide-1" href="images/products/product-1.png">
+                      <img src="images/products/product-1.png" width="400" height="400" alt="Чизбургер с листьями салата">
+                    </a>                    
                   </div>
                 </div>
                 
-                <div class="swiper-slide">
+                <div class="product-item__slide swiper-slide">
                   <div class="product-item__img">
-                    <img src="images/products/product-1.png" width="400" height="400" alt="Чизбургер с листьями салата">
+                    <a class="product-item__link" data-fancybox="slide-1" href="images/products/product-1.png">
+                      <img src="images/products/product-1.png" width="400" height="400" alt="Чизбургер с листьями салата">
+                    </a>                    
                   </div>
                 </div>  
                 
@@ -187,20 +193,46 @@
 
               <div class="arrow-left swiper-button-prev">
                 <svg class="arrow-left__icon" width="19" height="32">
-                  <use xlink:href="images/sprite.svg#left-icon"></use>
+                  <use xlink:href="images/sprite.svg#chevron-icon"></use>
                 </svg> 
               </div>
               <div class="arrow-right swiper-button-next">
                 <svg class="arrow-left__icon" width="19" height="32"> 
-                  <use xlink:href="images/sprite.svg#left-icon"></use>
+                  <use xlink:href="images/sprite.svg#chevron-icon"></use>
                 </svg>
               </div>
 
-            </div>
+            </div>            
 
             <div class="product-item__content">
               <h2 class="product-item__title title">Чизбургер с листьями салата</h2>              
-              <div class="product-item__star" data-rateyo-rating="4"></div>
+              <div class="product-item__rating rating" data-total-value="4">
+                <div class="rating__item" data-item-value="5">
+                  <svg class="rating__item-icon" width="16" height="16"> 
+                    <use xlink:href="images/sprite.svg#star-icon"></use>
+                  </svg>
+                </div>
+                <div class="rating__item" data-item-value="4">
+                  <svg class="rating__item-icon" width="16" height="16"> 
+                    <use xlink:href="images/sprite.svg#star-icon"></use>
+                  </svg>
+                </div>
+                <div class="rating__item" data-item-value="3">
+                  <svg class="rating__item-icon" width="16" height="16"> 
+                    <use xlink:href="images/sprite.svg#star-icon"></use>
+                  </svg>
+                </div>
+                <div class="rating__item" data-item-value="2">
+                  <svg class="rating__item-icon" width="16" height="16"> 
+                    <use xlink:href="images/sprite.svg#star-icon"></use>
+                  </svg>
+                </div>
+                <div class="rating__item" data-item-value="1">
+                  <svg class="rating__item-icon" width="16" height="16"> 
+                    <use xlink:href="images/sprite.svg#star-icon"></use>
+                  </svg>
+                </div>
+              </div>
               <span class="product-item__price">160 грн.</span>
               <form class="product-item__form" action="#">
 
@@ -240,9 +272,355 @@
               <a class="product-item__link details" href="#">Подробнее</a>
             </div>
           </div>          
-        </div>
+        </div>        
+      </div>
 
-        <div class="product-tabs"></div>
+      <div class="product-tabs__wrapper">
+        <div class="container">
+          <div class="product-tabs">
+            <div class="product-tabs__top">
+              <a class="product-tabs__top-item product-tabs__top-item--active" href="#tab-1">Описание</a>
+              <a class="product-tabs__top-item" href="#tab-2">Характеристики</a>
+              <a class="product-tabs__top-item" href="#tab-3">Отзывы (2)</a>
+            </div>
+            <div class="product-tabs__content">
+              <div class="product-tabs__content-item product-tabs__content-item--active" id="tab-1">
+                <p class="product-tabs__content-text">
+                  Рубленый бифштекс из натуральной говядины на карамелизованной булочке, с ломтиком сыра «Чеддер», кетчупом, горчицей, луком и маринованными огурчиками.
+                </p>
+                <p class="product-tabs__content-text">
+                  Аллергены: глютен, молоко, горчица, может содержать сою, яйцо, следы кунжута
+                </p>
+                <p class="product-tabs__content-text">
+                  Внешний вид товара может отличаться от изображений, представленных на сайте.
+                </p>
+              </div>
+              <div class="product-tabs__content-item" id="tab-2">
+                <ul class="product-tabs__content-list">
+                  <li class="product-tabs__content-descr">
+                    Диаметр: <span>20 см</span>
+                  </li>
+                  <li class="product-tabs__content-descr">
+                    Вес: <span>300 гр</span>
+                  </li>
+                  <li class="product-tabs__content-descr">
+                    Калорийность (на 100г): <span>295 ккал</span>
+                  </li>
+                  <li class="product-tabs__content-descr">
+                    Срок хранения: <span>до 3 дней</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="product-tabs__content-item comments" id="tab-3">
+                <h3 class="comments__title">Мнения наших клиентов</h3>
+                <ul class="comments__list">
+                  <li class="comments__item">
+                    <div class="comments__top">
+                      <div class="comments__author">
+                        <img class="comments__author-img" src="images/photo.jpg" width="70" height="70" alt="фото">
+                        <div class="comments__author-box">
+                          <span class="comments__author-name">Андрей</span>
+                          <span class="comments__date">10.06.2021</span>
+                        </div>
+                      </div>
+                      <div class="comments__rating rating" data-total-value="5">
+                        <div class="rating__item" data-item-value="5">
+                          <svg class="rating__item-icon" width="16" height="16"> 
+                            <use xlink:href="images/sprite.svg#star-icon"></use>
+                          </svg>
+                        </div>
+                        <div class="rating__item" data-item-value="4">
+                          <svg class="rating__item-icon" width="16" height="16"> 
+                            <use xlink:href="images/sprite.svg#star-icon"></use>
+                          </svg>
+                        </div>
+                        <div class="rating__item" data-item-value="3">
+                          <svg class="rating__item-icon" width="16" height="16"> 
+                            <use xlink:href="images/sprite.svg#star-icon"></use>
+                          </svg>
+                        </div>
+                        <div class="rating__item" data-item-value="2">
+                          <svg class="rating__item-icon" width="16" height="16"> 
+                            <use xlink:href="images/sprite.svg#star-icon"></use>
+                          </svg>
+                        </div>
+                        <div class="rating__item" data-item-value="1">
+                          <svg class="rating__item-icon" width="16" height="16"> 
+                            <use xlink:href="images/sprite.svg#star-icon"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>                    
+                    <p class="comments__text">
+                      Доставили быстро. Товар свежий и очень вкусный, буду пробовать еще!))
+                    </p>
+                  </li>
+                  <li class="comments__item">
+                    <div class="comments__top">
+                      <div class="comments__author">
+                        <img class="comments__author-img" src="images/photo.jpg" width="70" height="70" alt="фото">
+                        <div class="comments__author-box">
+                          <span class="comments__author-name">Екатерина Белая</span>
+                          <span class="comments__date">7.06.2021</span>
+                        </div>
+                      </div>
+                      <div class="comments__rating rating" data-total-value="4">
+                        <div class="rating__item" data-item-value="5">
+                          <svg class="rating__item-icon" width="16" height="16"> 
+                            <use xlink:href="images/sprite.svg#star-icon"></use>
+                          </svg>
+                        </div>
+                        <div class="rating__item" data-item-value="4">
+                          <svg class="rating__item-icon" width="16" height="16"> 
+                            <use xlink:href="images/sprite.svg#star-icon"></use>
+                          </svg>
+                        </div>
+                        <div class="rating__item" data-item-value="3">
+                          <svg class="rating__item-icon" width="16" height="16"> 
+                            <use xlink:href="images/sprite.svg#star-icon"></use>
+                          </svg>
+                        </div>
+                        <div class="rating__item" data-item-value="2">
+                          <svg class="rating__item-icon" width="16" height="16"> 
+                            <use xlink:href="images/sprite.svg#star-icon"></use>
+                          </svg>
+                        </div>
+                        <div class="rating__item" data-item-value="1">
+                          <svg class="rating__item-icon" width="16" height="16"> 
+                            <use xlink:href="images/sprite.svg#star-icon"></use>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>                    
+                    <p class="comments__text">
+                      этот бургер неплохой чтобы перекусить, когда нет возможности или времени что-нибудь приготовить. Это отличный вариант, чтобы съесть на ходу, но чтобы побаловать себя, я больше предпочту пиццу
+                    </p>
+                  </li>
+                </ul>
+                <h3 class="comments__title">Оставить отзыв</h3>
+                
+                <form class="comments__form" action="#">
+                  <div class="comments__opinion">
+                    <span>Ваша оценка *</span>
+                    <div class="comments-rating rating" data-total-value="0">
+                      <div class="comments-rating__item rating__item" data-item-value="5">
+                        <svg class="rating__item-icon" width="16" height="16"> 
+                          <use xlink:href="images/sprite.svg#star-icon"></use>
+                        </svg>
+                      </div>
+                      <div class="comments-rating__item rating__item" data-item-value="4">
+                        <svg class="rating__item-icon" width="16" height="16"> 
+                          <use xlink:href="images/sprite.svg#star-icon"></use>
+                        </svg>
+                      </div>
+                      <div class="comments-rating__item rating__item" data-item-value="3">
+                        <svg class="rating__item-icon" width="16" height="16"> 
+                          <use xlink:href="images/sprite.svg#star-icon"></use>
+                        </svg>
+                      </div>
+                      <div class="comments-rating__item rating__item" data-item-value="2">
+                        <svg class="rating__item-icon" width="16" height="16"> 
+                          <use xlink:href="images/sprite.svg#star-icon"></use>
+                        </svg>
+                      </div>
+                      <div class="comments-rating__item rating__item" data-item-value="1">
+                        <svg class="rating__item-icon" width="16" height="16"> 
+                          <use xlink:href="images/sprite.svg#star-icon"></use>
+                        </svg>
+                      </div>
+                    </div>                  
+                  </div>
+
+                  <div class="comments__form-field">
+
+                    <div class="comments__form-left">
+                      <label class="comments__label" for="comment">Ваш отзыв *</label>
+                      <textarea class="comments__input comments__input--textarea" name="comment" id="comment" placeholder="Введите текст отзыва" required></textarea>
+                    </div>                    
+
+                    <div class="comments__form-right">
+                      <label class="comments__label" for="name">Имя</label>
+                      <input class="comments__input" name="name" type="text" id="name" placeholder="Введите ваше имя" required>
+
+                      <label class="comments__label comments__label--email" for="email">Email *</label>
+                      <input class="comments__input" name="email" type="email" id="email" placeholder="youremail@mail.com" required>
+                    </div>                   
+                    
+                  </div>                  
+
+                  <label class="comments__save-label" role="checkbox" tabindex="0">
+                    <input class="comments__save-input" type="checkbox" name="save" > 
+                    <span class="comments__save-text">
+                      Сохранить моё имя, email и адрес сайта в этом браузере для последующих моих комментариев.
+                    </span>
+                  </label>
+
+                  <button class="comments__btn btn" type="submit">Оставить отзыв</button>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interesting section">
+      <div class="container">
+        <h2 class="interesting__title title">Вас может заинтересовать</h2>
+        <ul class="interesting__slider">
+
+          <li class="interesting__item">
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-1.png" width="140" height="140" alt="чизбургер с салатом">
+              <h3 class="product-card__name">
+                Чизбургер с листьями салата
+              </h3>
+              <span class="product-card__price">
+                160 <span>грн.</span>
+              </span>              
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>            
+          </li>
+
+          <li class="interesting__item">
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-2.png" width="140" height="140" alt="бифбургер">
+              <h3 class="product-card__name">
+                Бифбургер
+              </h3>
+              <span class="product-card__price">
+                190 <span>грн.</span>
+              </span>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>
+          </li>
+
+          <li class="interesting__item">
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-3.png"
+              width="140" height="140" alt="королевский чизбургер">
+              <h3 class="product-card__name">
+                Королевский чизбургер
+              </h3>
+              <span class="product-card__price">
+                260 <span>грн.</span>
+              </span>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>            
+          </li>
+
+          <li class="interesting__item">
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-4.png" width="140" height="140" alt="черный гамбургер">
+              <h3 class="product-card__name">
+                Черный гамбургер
+              </h3>
+              <span class="product-card__price">
+                199 <span>грн.</span>
+              </span>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>            
+          </li>
+
+          <li class="interesting__item">
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-5.png" width="140" height="140" alt="чикен бургер">
+              <h3 class="product-card__name">
+                Чикен бургер
+              </h3>
+              <span class="product-card__price">
+                180 <span>грн.</span>
+              </span>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>
+          </li>
+
+          <li class="interesting__item">
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-1.png" width="140" height="140" alt="чизбургер с салатом">
+              <h3 class="product-card__name">
+                Чизбургер с листьями салата
+              </h3>
+              <span class="product-card__price">
+                160 <span>грн.</span>
+              </span>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>
+          </li>
+
+          <li class="interesting__item">
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-2.png" width="140" height="140" alt="бифбургер">
+              <h3 class="product-card__name">
+                Бифбургер
+              </h3>
+              <span class="product-card__price">
+                190 <span>грн.</span>
+              </span>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>            
+          </li>
+
+          <li class="interesting__item">
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-3.png" width="140" height="140" alt="королевский чизбургер">
+              <h3 class="product-card__name">
+                Королевский чизбургер
+              </h3>
+              <span class="product-card__price">
+                260 <span>грн.</span>
+              </span>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>  
+          </li>
+
+          <li class="interesting__item">
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-4.png" width="140" height="140" alt="черный гамбургер">
+              <h3 class="product-card__name">
+                Черный гамбургер
+              </h3>
+              <span class="product-card__price">
+                199 <span>грн.</span>
+              </span>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>
+          </li>
+
+          <li class="interesting__item">
+            <article class="product-card">
+              <img class="product-card__img" src="images/catalog/product-5.png" width="140" height="140" alt="чикен бургер">
+              <h3 class="product-card__name">
+                Чикен бургер
+              </h3>
+              <span class="product-card__price">
+                180 <span>грн.</span>
+              </span>
+              <button class="product-card__btn btn" type="button">
+                В корзину
+              </button>
+            </article>            
+          </li>
+        </ul>
       </div>
     </section>
 

@@ -1,4 +1,13 @@
-$(function(){  
+$(function(){ 
+  
+  $('.product-tabs__top-item').on('click', function(e){
+    e.preventDefault();
+    $('.product-tabs__top-item').removeClass('product-tabs__top-item--active');
+    $(this).addClass('product-tabs__top-item--active');
+
+    $('.product-tabs__content-item').removeClass('product-tabs__content-item--active');
+    $($(this).attr('href')).addClass('product-tabs__content-item--active');
+  });
 
   $('.products__select, .product-item__input').styler();
 
@@ -32,13 +41,13 @@ $(function(){
     }
   });
 
-  $(".product-item__star").rateYo({    
-    starWidth: "16px",
-    normalFill: "#C1C1C1",
-    ratedFill: "#FFB800",
-    spacing   : "6px",
-    readOnly: true
-  });
+  // $(".product-item__star").rateYo({    
+  //   starWidth: "16px",
+  //   normalFill: "#C1C1C1",
+  //   ratedFill: "#FFB800",
+  //   spacing   : "6px",
+  //   readOnly: true
+  // });
   
 });
 
@@ -68,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   filter.addEventListener('click', () => {
-    console.log('yes')
+    
     filterMenu.classList.add('products__filters--active'); 
     if (filterMenu.classList.contains('products__filters--active'))  { 
       bodyLock.classList.add('lock'); 
@@ -132,11 +141,35 @@ $('.reviews__slider').slick({
 
   responsive: [
     {
-      breakpoint: 561,
+      breakpoint: 576,
       settings: {
         dots: false
-      }
-    }      
+      },
+    },      
+  ] 
+
+});
+
+$('.interesting__slider').slick({
+  
+  centerMode: true,
+  centerPadding: '0',  
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  prevArrow: '<button class="slider__arrow slider__arrow--prev" type="button"><svg class="slider__arrow-icon" width="18" height="18"><use xlink:href="images/sprite.svg#left-icon"></use></svg></button>',
+  nextArrow: '<button class="slider__arrow slider__arrow--next" type="button"><svg class="slider__arrow-icon" width="18" height="18"><use xlink:href="images/sprite.svg#left-icon"></use></svg></button>',
+
+  responsive: [
+    {
+      breakpoint: 993,
+      settings: {
+        dots: true,
+        arrows: false,
+        slidesToShow: 4,
+        
+        
+      },
+    },      
   ] 
 
 });
@@ -146,10 +179,55 @@ const swiper = new Swiper('.product-item__slider', {
   loop: true,
   
   navigation: {
-    nextEl: '<div class="arrow-right swiper-button-next"><svg class="arrow-left__icon" width="19" height="32"><use xlink:href="images/sprite.svg#left-icon"></use></svg></div>',
-    prevEl: '<div class="arrow-left swiper-button-prev"><svg class="arrow-left__icon" width="19" height="32"><use xlink:href="images/sprite.svg#left-icon"></use></svg></div>',
-  },  
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  breakpoints: {
+    
+    993: {      
+      watchOverflow: true,
+    }, 
+    
+  }
   
 });
 
-// var mixer = mixitup('.popular-categories__catalog');
+const ratingItemsList = document.querySelectorAll('.comments-rating__item');
+const ratingItemArray = Array.prototype.slice.call(ratingItemsList);
+
+document.querySelectorAll('.comments-rating__item').forEach(item =>
+  item.addEventListener('click', () => {
+
+    const {itemValue} = item.dataset;
+    item.parentNode.dataset.totalValue = item.dataset.itemValue;
+  })
+);
+
+const myCarousel = new Carousel(document.querySelector('.product-item__slider'), {
+  preload: 2,
+  Dots: false
+});
+
+Fancybox.bind('[data-fancybox="gallery"]', {
+
+  Thumbs: false,
+  Toolbar: false,
+
+  closeButton: "top",
+  Carousel: {
+    Dots: true,
+    on: {
+      change: (that) => {
+        myCarousel.slideTo(myCarousel.findPageForSlide(that.page), {
+          friction: 0,
+        });
+      },
+    },
+  },
+
+});
+
+var mixer = mixitup('.popular-categories__catalog', {
+
+});

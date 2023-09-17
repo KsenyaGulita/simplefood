@@ -1,21 +1,13 @@
 <div class="breadcrumbs">
   <div class="container">
     <ul class="breadcrumbs__list">
+      {% for item in list %}
       <li class="breadcrumbs__item">
         <a class="breadcrumbs__link link" href="#">
-          Главная 
+          {{ item }}
         </a>
-      </li>
-      <li class="breadcrumbs__item">
-        <a class="breadcrumbs__link link" href="#">
-          Каталог товаров
-        </a>
-      </li>
-      <li class="breadcrumbs__item">
-        <span class="breadcrumbs__link">
-          Чизбургер с листьями салата
-        </span>
-      </li>                 
+      </li>       
+      {% endfor %}                
     </ul>
   </div>
 </div>

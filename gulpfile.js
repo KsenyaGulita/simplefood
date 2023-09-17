@@ -45,8 +45,6 @@ function nunjucks() {
   .pipe(browserSync.stream())
 }
 
-
-
 function browsersync() {
   browserSync.init({
     server: {

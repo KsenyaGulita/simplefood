@@ -80,6 +80,10 @@
     }
   }
 
+  &__list-item.active .header__list-link{
+    color: $orange-900;
+  }
+
   &__list-item:not(:last-child) {
     margin-right: 45px;
 
@@ -92,9 +96,7 @@
   &__list-link {
     font-size: 18px;
     
-    &--active {
-      color: $orange-900;
-    }
+    
   }  
 }
 

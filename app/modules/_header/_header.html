@@ -18,17 +18,17 @@
                 <span class="sr-only">Закрыть меню</span>              
               </button>
             </div>            
-
-            <ul class="header__list">
+            
+            <ul class="header__list">      
+              {% for link in menuLinks %}
+              {% if link.text == title %}
+              <li class="header__list-item active">
+              {% else %}
               <li class="header__list-item">
-                <a class="header__list-link header__list-link--active link" href="#">Главная</a>
-              </li>
-              <li class="header__list-item">
-                <a class="header__list-link link" href="#">Блюда</a>
-              </li>
-              <li class="header__list-item">
-                <a class="header__list-link link" href="#">Контакты</a>
-              </li>
+              {% endif %}
+                <a class="header__list-link link" href="{{ link.link }}">{{ link.text }}</a>
+              </li>                                    
+              {% endfor %}
             </ul>
 
             <address class="contact__address address">
